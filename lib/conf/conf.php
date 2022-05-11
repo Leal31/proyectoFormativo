@@ -2,6 +2,6 @@
     $server="localhost";
     $user="root";
     $pass="";
-    $database="tps_2397583";
+    $database="historia_clinica";
     $port=3306;
 ?>
