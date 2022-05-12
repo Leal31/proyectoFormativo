@@ -1,7 +1,7 @@
 <?php
     class Usuarios {
         private $usu_id;
-        private $us_docum;
+        private $usu_docum;
         private $usu_clave;
         private $rol_id;
 
@@ -12,8 +12,8 @@
             return $this->usu_id;
         }
 
-        public function setUsDocum($us_docum){
-            $this->us_docum=$us_docum;
+        public function setUsuDocum($usu_docum){
+            $this->usu_docum=$usu_docum;
         }
         public function getUsDocum(){
             return $this->us_docum;
