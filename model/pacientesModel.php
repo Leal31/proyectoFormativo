@@ -1,5 +1,6 @@
 <?php
 class Pacientes {
+  // Definimos atributos
   private $pac_id;
   private $pac_nombre;
   private $pac_apellido;
@@ -7,7 +8,8 @@ class Pacientes {
   private $pac_telefono;
   private $gen_id;
   private $estr_id;
-
+  
+  // Encapsulación
   public function setPacId($pac_id) {
     $this -> pac_id = $pac_id;
   }
@@ -40,12 +42,29 @@ class Pacientes {
     return $this -> pac_direccion;
   }
 
-  public function setPacId($pac_id) {
-    $this -> pac_id = $pac_id;
+  public function setPacTelefono($pac_telefono) {
+    $this -> pac_telefono = $pac_telefono;
   }
 
-  public function getPacId() {
-    return $this -> pac_id;
+  public function getPacTelefono() {
+    return $this -> pac_telefono;
+  }
+
+  public function setGenId($gen_id) {
+    $this -> gen_id = $gen_id;
+  }
+
+  public function getGenId() {
+    return $this -> gen_id;
+  }
+
+  public function setEstrId($estr_id) {
+    $this -> estr_id = $estr_id;
+  }
+
+  public function getEstrId() {
+    return $this -> estr_id;
   }
 }
+
 ?>
