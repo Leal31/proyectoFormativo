@@ -1,6 +1,6 @@
 <?php
     $server="localhost";
-    $user="root";
+    $user="user";
     $pass="";
     $database="historia_clinica";
     $port=3306;
