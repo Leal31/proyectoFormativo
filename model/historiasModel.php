@@ -9,7 +9,7 @@
         private $hist_ciloi;
         private $hist_ejeoi;
         private $hist_diaod;
-        private $hist_diaod;
+        private $hist_diaoi;
         private $hist_recom;
         private $pac_id;
 
