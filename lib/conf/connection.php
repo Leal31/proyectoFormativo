@@ -10,6 +10,8 @@
             $this->setConnect();
             $this->connect();
         }
+        /* Funcion para definir valores de 
+        variables en la clase */
         private function setConnect(){
             require_once 'conf.php';
             $this->server=$server;
@@ -18,6 +20,9 @@
             $this->database=$database;
             $this->port=$port;
         }
+        /* Funcion para crear una conexion con
+        la base de datos usando los valores
+        previamente definidos */
         private function connect(){
             $this->link=mysqli_connect($this->server,$this->user,$this->pass,$this->database);
             if(!$this->link){
@@ -26,9 +31,13 @@
                 echo "Conexion Exitosa";
             }
         }
+        /* Funcion para obtener la conexion
+        como valor */
         public function getConnect(){
             return $this->link;
         }
+        /* Funcion para terminar la conexion
+        con la base de datos */
         public function close(){
             mysqli_close($this->link);
         }
