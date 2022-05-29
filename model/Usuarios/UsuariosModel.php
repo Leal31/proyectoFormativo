@@ -1,5 +1,6 @@
 <?php
-    class Usuarios {
+include_once '../MasterModel.php';
+    class Usuarios extends MasterModel {
         private $usu_id;
 	private $usu_docum;
 	private $usu_nombre;

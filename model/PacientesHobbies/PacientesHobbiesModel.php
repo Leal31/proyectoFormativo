@@ -1,6 +1,6 @@
 <?php
-
-class PacientesHobbies {
+include_once '../MasterModel.php';
+class PacientesHobbies extends MasterModel {
   // Definimos atributos
   private $pac_hob_id;
   private $pac_id;

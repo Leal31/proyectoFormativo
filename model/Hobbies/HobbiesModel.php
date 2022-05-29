@@ -1,5 +1,8 @@
 <?php
-    class Hobbies {
+
+    include_once '../MasterModel.php';
+
+    class Hobbies extends MasterModel {
         private $hob_id;
         private $hob_nombre;
 

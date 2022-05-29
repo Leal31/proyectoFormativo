@@ -1,5 +1,6 @@
 <?php
-    class Historias {
+include_once '../MasterModel.php';
+    class Historias extends MasterModel {
         private $hist_id;
         private $hist_motv;
         private $hist_esfod;

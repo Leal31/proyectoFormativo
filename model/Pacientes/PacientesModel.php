@@ -1,5 +1,7 @@
 <?php
-class Pacientes {
+
+include_once '../MasterModel.php';
+class Pacientes extends MasterModel{
   // Definimos atributos
   private $pac_id;
   private $pac_nombre;
