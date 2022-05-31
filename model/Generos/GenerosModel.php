@@ -1,5 +1,8 @@
 <?php 
-class Generos{
+
+include_once '../MasterModel.php';
+
+class Generos extends MasterModel {
     private $gen_id;
     private $gen_nombre;
 

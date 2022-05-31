@@ -1,7 +1,9 @@
 <?php
-    class Usuarios {
+include_once '../model/MasterModel.php';
+    class UsuariosModel extends MasterModel {
         private $usu_id;
-        private $usu_docum;
+	    private $usu_docum;
+	    private $usu_nombre;
         private $usu_clave;
         private $rol_id;
 
@@ -15,9 +17,17 @@
         public function setUsuDocum($usu_docum){
             $this->usu_docum=$usu_docum;
         }
-        public function getUsDocum(){
-            return $this->us_docum;
-        }
+        public function getUsuDocum(){
+            return $this->usu_docum;
+	}
+
+	public function setUsuNombre($usu_nombre) {
+	  $this -> usu_nombre = $usu_nombre;
+	}
+
+	public function getUsuNombre() {
+	  return $this -> usu_nombre;
+	}
 
         public function setUsuClave($usu_clave){
             $this->usu_clave=$usu_clave;

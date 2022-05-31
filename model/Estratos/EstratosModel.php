@@ -1,5 +1,7 @@
 <?php 
-class Estratos{
+include_once '../MasterModel.php';
+
+class Estratos extends MasterModel {
     private $estr_id;
     private $estr_nombre;
 
