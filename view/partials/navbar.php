@@ -16,6 +16,34 @@
             
           </ul>
         </li>
+	<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Rol
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Consultar Roles</a></li>
+            <li><a class="dropdown-item" href="#">Registrar Roles</a></li>
+          </ul>
+        </li>
+	<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Generos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Consultar Generos</a></li>
+            <li><a class="dropdown-item" href="#">Registrar Generos</a></li>
+          </ul>
+        </li>
+	<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Estratos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Consultar Estratos</a></li>
+            <li><a class="dropdown-item" href="#">Registrar Estratos</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
