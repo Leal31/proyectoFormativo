@@ -37,7 +37,7 @@ class loginController{
                 echo "<script> alert('Credenciales incorrectas'); </script>";
             }else if ($usuarioSi == false AND $passwordSi == true) {
                 echo "<script> alert('Usuario No Existe'); </script>";
-            }else if ($usarioSi == true AND $passwordSi == true AND $rol == false) {
+            }else if ($usuarioSi == true AND $passwordSi == true AND $rol == false) {
                 echo "<script> alert('Roll Incorrecto'); </script>";
         }
     }

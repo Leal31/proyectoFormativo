@@ -34,16 +34,16 @@ class UsuariosController {
         }
         
         if (($usuarioSi == true and $passwordSi == true) and ($rolSi == true)) {
-            $_SESSION['ingresoDocumento'] = $documento;
+            $_SESSION['ingresoDocumento'] = $_POST['usu_docum'];
             
-            redirect(getUrl('Login','login','home'));
+            redirect(getUrl('Login','Login','home'));
 
             }else if ($usuarioSi == true AND $passwordSi == false) {
                 echo "<script> alert('Credenciales incorrectas'); </script>";
             }else if ($usuarioSi == false AND $passwordSi == false) {
                 echo "<script> alert('Usuario No Existe'); </script>";
-            }else if (($usarioSi == true AND $passwordSi == true) AND ($rol == false)) {
-                echo "<script> alert('Roll Incorrecto'); </script>";
+            }else if (($usuarioSi == true AND $passwordSi == true) AND ($rolSi == false)) {
+                echo "<script> alert('Rol Incorrecto'); </script>";
         }
     }
     function home(){

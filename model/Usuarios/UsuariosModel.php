@@ -1,17 +1,9 @@
 <?php
-<<<<<<< HEAD
 include_once '../model/MasterModel.php';
     class UsuariosModel extends MasterModel {
         private $usu_id;
-	    private $usu_docum;
-	    private $usu_nombre;
-=======
-include_once '../MasterModel.php';
-    class Usuarios extends MasterModel {
-        private $usu_id;
-	private $usu_docum;
-	private $usu_nombre;
->>>>>>> b1bd2acd2d6fffc2d3ed7abc35c93293d9e00f15
+        private $usu_docum;
+        private $usu_nombre;
         private $usu_clave;
         private $rol_id;
 
