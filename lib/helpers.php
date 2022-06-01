@@ -18,10 +18,15 @@
 
     /* Funcion hecha para definir y retornar la url que se usara con otros
        metodos a futuro */
-    function getUrl($modulo, $controlador, $funcion) {
+    function getUrl($modulo, $controlador, $funcion,$parametros=false) {
         /* Definimos variable $url donde se guarda la informacion de los archivos
            mediante parametros de la dirección url */
-        $url = "index.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
+	$url = "index.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
+	if($parametros!=false){
+	    foreach($parametros as $key=>$value){
+		$url.="&$key=$value";
+	    }
+	}
 
         // Al final nos retorna la url con el debido formato
         return $url;

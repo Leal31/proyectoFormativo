@@ -39,8 +39,8 @@
             Estratos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Consultar Estratos</a></li>
-            <li><a class="dropdown-item" href="#">Registrar Estratos</a></li>
+	  <li><a class="dropdown-item" href="<?=getUrl("Estratos","Estratos","consult")?>">Consultar Estratos</a></li>
+	  <li><a class="dropdown-item" href="<?=getUrl("Estratos","Estratos","getInsert")?>">Registrar Estratos</a></li>
           </ul>
         </li>
 
