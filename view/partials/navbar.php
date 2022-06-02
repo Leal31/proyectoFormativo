@@ -22,8 +22,8 @@
             Rol
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="">Consultar Roles</a></li>
-            <li><a class="dropdown-item" href="#">Registrar Roles</a></li>
+          <li><a class="dropdown-item" href="<?=getUrl("Rol","Rol","consult")?>">Consultar Roles</a></li>
+            <li><a class="dropdown-item" href="<?=getUrl("Rol","Rol","getInsert")?>">Registrar Roles</a></li>
           </ul>
         </li>
 	<li class="nav-item dropdown">
@@ -44,20 +44,6 @@
 	  <li><a class="dropdown-item" href="<?=getUrl("Estratos","Estratos","getInsert")?>">Registrar Estratos</a></li>
           </ul>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </li>
         <b>Bienvenido, Señor <?= $_SESSION['usu_nombre']?></b>
       </ul>

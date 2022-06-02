@@ -79,10 +79,17 @@ class UsuariosController {
     $obj = new UsuariosModel();
     $obj -> setUsuId($_GET['usu_id']);
     $sql = "SELECT * FROM usuarios WHERE usu_id=".$obj -> getUsuId();
+    $sql2 = "SELECT * FROM roles";
+
     $usuario = $obj -> sentencia($sql);
+    $roles = $obj -> sentencia($sql2);
+
     include_once '../view/Usuarios/delete.php';
   }
 
+  public function postDelete() {
+
+  }
 }
 
 

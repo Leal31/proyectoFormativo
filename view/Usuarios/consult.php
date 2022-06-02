@@ -20,7 +20,7 @@
 			<td><?=$usu['usu_docum']?></td>
 			<td><?=$usu['usu_nombre']?></td>
 			<td><a href="<?=getUrl('Usuarios','Usuarios','getUpdate',array('usu_id'=>$usu['usu_id']))?>"><button class="btn btn-primary">Editar</button></a></td>
-			<td><a href="<?=getUrl("Usuarios","Usuarios","getDelete",array("usu_id"=>$usu_id['usu_id']))?>"><button class="btn btn-danger">Eliminar</button></a></td>
+			<td><a href="<?=getUrl("Usuarios","Usuarios","getDelete",array("usu_id"=>$usu['usu_id']))?>"><button class="btn btn-danger">Eliminar</button></a></td>
 		    </tr>
 		    <?php
 		}

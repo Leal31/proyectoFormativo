@@ -1,6 +1,6 @@
 <?php
-include_once '../MasterModel.php';
-  class Roles extends MasterModel {
+include_once '../model/MasterModel.php';
+  class RolModel extends MasterModel {
     private $rol_id;
     private $rol_nombre;
 
