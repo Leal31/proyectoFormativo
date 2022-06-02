@@ -2,6 +2,11 @@
     <h3 class="display-4">Consultar Estratos</h3>
 </div>
 <div class="mt-5">
+    <form action="<?=getUrl("Estratos","Estratos","consult")?>" method="POST">
+	<label>Nombre</label>
+	<input type="text" placeholder="Buscar por Nombre" name="filtro">
+	<input type="submit" value="Buscar">
+    </form>
     <table class="table">
         <thead>
             <tr>

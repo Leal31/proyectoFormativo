@@ -32,7 +32,15 @@
 	}
 	function consult(){
 	    $obj=new EstratosModel();
-	    $sql="SELECT * FROM estratos";
+	    if(isset($_POST['filtro'])){
+		if($_POST['filtro']!=NULL){
+		    $sql="SELECT * FROM estratos where estr_nombre like '%".$_POST['filtro']."%' limit 3";
+		} else {
+		    $sql="SELECT * FROM estratos";
+		}
+	    } else {
+		$sql="SELECT * FROM estratos";
+	    }
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/consult.php';
 	}
