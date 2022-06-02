@@ -6,23 +6,23 @@
 	}
 	function getUpdate(){
 	    $obj=new EstratosModel();
-	    $estr_id=$_GET['estr_id'];
-	    $sql="SELECT * FROM estratos WHERE estr_id=$estr_id";
+	    $obj->setEstrId($_GET['estr_id']);
+	    $sql="SELECT * FROM estratos WHERE estr_id=".$obj->getEstrId();
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/update.php';
 	}
 	function getDelete(){
 	    $obj=new EstratosModel();
-	    $estr_id=$_GET['estr_id'];
-	    $sql="SELECT * FROM estratos WHERE estr_id=$estr_id";
+	    $obj->setEstrId($_GET['estr_id']);
+	    $sql="SELECT * FROM estratos WHERE estr_id=".$obj->getEstrId();
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/delete.php';
 	}
 	function insert(){
 	    $obj=new EstratosModel();
-	    $estr_id=$obj->autoincrement("estr_id","estratos");
-	    $estr_nombre=$_POST['estr_nombre'];
-	    $sql="INSERT INTO estratos values($estr_id,'$estr_nombre')";
+	    $obj->setEstrId($obj->autoincrement("estr_id","estratos"));
+	    $obj->setEstrNombre($_POST['estr_nombre']);
+	    $sql="INSERT INTO estratos values(".$obj->getEstrId().",'".$obj->getEstrNombre()."')";
 	    $exec=$obj->sentencia($sql);
 	    if($exec){
 		redirect(getUrl("Estratos","Estratos","getInsert"));
@@ -38,9 +38,9 @@
 	}
 	function update(){
 	    $obj=new EstratosModel();
-	    $estr_id=$_POST['estr_id'];
-	    $estr_nombre=$_POST['estr_nombre'];
-	    $sql="UPDATE estratos SET estr_nombre='$estr_nombre' WHERE estr_id=$estr_id";
+	    $obj->setEstrId($_POST['estr_id']);
+	    $obj->setEstrNombre($_POST['estr_nombre']);
+	    $sql="UPDATE estratos SET estr_nombre='".$obj->getEstrNombre()."' WHERE estr_id=".$obj->getEstrId();
 	    $exec=$obj->sentencia($sql);
 	    if($exec){
 		redirect(getUrl("Estratos","Estratos","consult"));
@@ -50,8 +50,8 @@
 	}
 	function delete(){
 	    $obj=new EstratosModel();
-	    $estr_id=$_POST['estr_id'];
-	    $sql="DELETE FROM estratos WHERE estr_id=$estr_id";
+	    $obj->setEstrId($_POST['estr_id']);
+	    $sql="DELETE FROM estratos WHERE estr_id=".$obj->getEstrId();
 	    $exec=$obj->sentencia($sql);
 	    if($exec){
 		redirect(getUrl("Estratos","Estratos","consult"));
