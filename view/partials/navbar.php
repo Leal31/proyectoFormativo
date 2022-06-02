@@ -12,7 +12,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Consultar Usuario</a></li>
-            <li><a class="dropdown-item" href="<?= getUrl("Usuarios", "Usuarios", "cerrarSesion") ?>">Cerrar Sesion</a></li>
+            <li><a class="dropdown-item" href="<?= getUrl("Login", "Login", "cerrarSesion") ?>">Cerrar Sesion</a></li>
             
           </ul>
         </li>

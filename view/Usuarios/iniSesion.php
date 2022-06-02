@@ -1,4 +1,4 @@
-<form action="<?php echo getUrl("Usuarios", "Usuarios", "validar"); ?>" method="post">
+<form action="<?php echo getUrl("Login", "Login", "validar"); ?>" method="post">
     <div class="container">
       <h1>Inicio de Sesion</h1>
       <div class="mb-3">
