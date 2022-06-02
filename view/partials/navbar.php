@@ -11,9 +11,9 @@
             Usuario
           </a>
 	  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-	    <li><a class="dropdown-item" href="<?= getUrl("Usuarios", "Usuarios", "getInsert")?>">Registrar Usuario</a></li>
 	    <li><a class="dropdown-item" href="<?= getUrl("Usuarios", "Usuarios", "consult")?>">Consultar Usuario</a></li>
-            <li><a class="dropdown-item" href="<?= getUrl("Login", "Login", "cerrarSesion") ?>">Cerrar Sesion</a></li>
+      <li><a class="dropdown-item" href="<?= getUrl("Usuarios", "Usuarios", "getInsert")?>">Registrar Usuario</a></li>
+      <li><a class="dropdown-item" href="<?= getUrl("Login", "Login", "cerrarSesion") ?>">Cerrar Sesion</a></li>
             
           </ul>
         </li>
@@ -22,7 +22,7 @@
             Rol
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Consultar Roles</a></li>
+            <li><a class="dropdown-item" href="">Consultar Roles</a></li>
             <li><a class="dropdown-item" href="#">Registrar Roles</a></li>
           </ul>
         </li>
@@ -31,8 +31,8 @@
             Generos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Consultar Generos</a></li>
-            <li><a class="dropdown-item" href="#">Registrar Generos</a></li>
+          <li><a class="dropdown-item" href="<?=getUrl("Generos","Generos","consult")?>">Consultar Generos</a></li>
+            <li><a class="dropdown-item" href="<?=getUrl("Generos","Generos","getInsert")?>">Registrar Generos</a></li>
           </ul>
         </li>
 	<li class="nav-item dropdown">
