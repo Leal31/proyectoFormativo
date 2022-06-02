@@ -10,8 +10,9 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Usuario
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Consultar Usuario</a></li>
+	  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+	    <li><a class="dropdown-item" href="<?= getUrl("Usuarios", "Usuarios", "getInsert")?>">Registrar Usuario</a></li>
+	    <li><a class="dropdown-item" href="<?= getUrl("Usuarios", "Usuarios", "consult")?>">Consultar Usuario</a></li>
             <li><a class="dropdown-item" href="<?= getUrl("Login", "Login", "cerrarSesion") ?>">Cerrar Sesion</a></li>
             
           </ul>
