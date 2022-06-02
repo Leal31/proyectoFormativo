@@ -17,8 +17,8 @@
             <tr>
                 <td><?= $gene['gen_id']?></td>
                 <td><?= $gene['gen_nombre']?></td>
-                <td><a href="<?php getUrl('Generos','Generos','getUpdate',array('gen_id' => $$gene['gen_id']))?>"><button class="btn btn-primary">Editar</button></a></td>
-                <td><a href="<?php getUrl('Generos','Generos','getDelete',array('gen_id' => $$gene['gen_id']))?>"><button class="btn btn-primary">Eliminar</button></a></td>
+                <td><a href="<?= getUrl('Generos','Generos','getUpdate',array('gen_id' => $gene['gen_id']))?>"><button class="btn btn-success">Editar</button></a></td>
+                <td><a href="<?= getUrl('Generos','Generos','getDelete',array('gen_id' => $gene['gen_id']))?>"><button class="btn btn-danger">Eliminar</button></a></td>
             </tr>
             
             <?php

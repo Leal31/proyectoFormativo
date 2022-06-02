@@ -9,7 +9,7 @@ class generosController{
     function getUpdate(){
         $obj = new GenerosModel();
         $gen_id = $_GET['gen_id'];
-        $sql="SELECT * FROM estratos WHERE estr_id=$estr_id";
+        $sql="SELECT * FROM generos WHERE gen_id=$gen_id";
         $generos = $obj -> sentencia($sql);
         include_once '../view/Generos/update.php';
     }
@@ -42,7 +42,7 @@ class generosController{
             $obj = new GenerosModel();
             $gen_id = $_POST['gen_id'];
             $gen_nombre = $_POST['gen_nombre'];
-            $sql="SELECT * FROM generos SET gen_nombre='$gen_nombre' WHERE gen_id='$gen_id'";
+            $sql="UPDATE generos SET gen_nombre='$gen_nombre' WHERE gen_id='$gen_id'";
             $consulta = $obj-> sentencia($sql);
 
             if ($consulta){
