@@ -22,7 +22,7 @@ class RolController{
     	
 	function consult(){
         $obj=new RolModel();
-	    $sql="SELECT * FROM Roles";
+	    $sql="SELECT * FROM roles";
 	    $roles=$obj->sentencia($sql);
 	    include_once '../view/Rol/consult.php';
     	}

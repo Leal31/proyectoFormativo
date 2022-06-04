@@ -23,9 +23,8 @@ class generosController{
     function insert(){
         $obj = new GenerosModel();
         $gen_id = $obj -> autoincrement("gen_id","generos");
-        $gen_nombre=$_POST['gen_nombre'];
-        $sql="INSERT INTO generos values($gen_id,'$gen_nombre')";
-        $consulta=$obj -> sentencia($sql);
+	$gen_nombre=$_POST['gen_nombre'];
+	$consulta = $obj -> insert("generos", array('gen_id', 'gen_nombre'), array($gen_id, $gen_nombre));
         if ($consulta) {
             redirect(getUrl("Generos","Generos","getInsert"));
         }else {
@@ -41,9 +40,9 @@ class generosController{
         function update(){
             $obj = new GenerosModel();
             $gen_id = $_POST['gen_id'];
-            $gen_nombre = $_POST['gen_nombre'];
-            $sql="UPDATE generos SET gen_nombre='$gen_nombre' WHERE gen_id='$gen_id'";
-            $consulta = $obj-> sentencia($sql);
+	    $gen_nombre = $_POST['gen_nombre'];
+
+	    $consulta = $obj -> update("generos", array('gen_nombre'), array($gen_nombre), 'gen_id', $gen_id);
 
             if ($consulta){
                 redirect(getUrl("Generos","Generos","consult"));
@@ -54,9 +53,8 @@ class generosController{
 
         function delete(){
             $obj = new GenerosModel();
-            $gen_id = $_POST['gen_id'];
-            $sql ="DELETE FROM generos WHERE gen_id=$gen_id";
-            $consulta = $obj ->sentencia($sql);
+	    $gen_id = $_POST['gen_id'];
+	    $consulta = $obj -> delete('generos', 'gen_id', $gen_id);
                 
             if ($consulta) {
                 redirect(getUrl("Generos","Generos","consult"));
