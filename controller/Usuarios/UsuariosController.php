@@ -38,7 +38,32 @@ class UsuariosController {
 
   public function consult() {
     $obj = new UsuariosModel();
-    $sql = "SELECT * FROM usuarios";
+    $sql="SELECT * FROM roles";
+    $roles=$obj->sentencia($sql);
+    if(isset($_POST['usu_docum'])){
+	if($_POST['usu_docum']!=NULL){
+	    $sql="SELECT * FROM usuarios WHERE usu_docum=".$_POST['usu_docum'];
+	    if($_POST['usu_nombre']!=NULL){
+		$sql.=" AND usu_nombre like'%".$_POST['usu_nombre']."%'";
+		if($_POST['rol_id']!=NULL){
+		    $sql.=" AND rol_id=".$_POST['rol_id'];
+		}
+	    } elseif($_POST['rol_id']){
+		$sql.=" AND rol_id=".$_POST['rol_id'];
+	    }
+	} elseif($_POST['usu_nombre']!=NULL){
+	    $sql="SELECT * FROM usuarios WHERE usu_nombre like '%".$_POST['usu_nombre']."%'";
+	    if($_POST['rol_id']!=NULL){
+		$sql.=" AND rol_id=".$_POST['rol_id'];
+	    }
+	} elseif($_POST['rol_id']!=NULL){
+	    $sql="SELECT * FROM usuarios WHERE rol_id=".$_POST['rol_id'];
+	} else {
+	    $sql="SELECT * FROM usuarios";
+	}
+    } else {
+	$sql="SELECT * FROM usuarios";
+    }
     $usuarios = $obj -> sentencia($sql);
     include_once '../view/Usuarios/consult.php';
   }
