@@ -2,7 +2,7 @@
     include_once '../model/Estratos/EstratosModel.php';
     class estratosController{
 	function getInsert(){
-	    include_once '../view/Estratos/insert.php';
+	    include_once '../view/Estratos/insert.php' ;
 	}
 	function getUpdate(){
 	    $obj=new EstratosModel();
