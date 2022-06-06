@@ -19,9 +19,8 @@ class UsuariosController {
     $obj -> setUsuNombre($_POST['usu_nombre']);
     $obj -> setUsuClave($_POST['usu_clave']);
     $obj -> setRolId($_POST['rol_id']);
-
-    $sql = "INSERT INTO usuarios VALUES (".$obj -> getUsuId().",".$obj -> getUsuDocum().",'".$obj -> getUsuNombre()."','".$obj -> getUsuClave()."', ".$obj -> getRolId().")";
-    $ejecutar = $obj -> sentencia($sql);
+    
+    $ejecutar = $obj -> insert('usuarios', array('usu_id', 'usu_docum', 'usu_nombre', 'usu_clave', 'rol_id'), array($obj -> getUsuId(), $obj -> getUsuDocum(), $obj -> getUsuNombre(), $obj -> getUsuClave(), $obj -> getRolId()));
 
     if ($ejecutar) {
       ?>
