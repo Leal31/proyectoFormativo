@@ -1,6 +1,6 @@
 <?php
 include_once '../model/Usuarios/UsuariosModel.php';
-
+// controlador
 class UsuariosController {
   public function getInsert() {
     $obj = new UsuariosModel();
