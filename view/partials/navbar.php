@@ -44,6 +44,15 @@
 	  <li><a class="dropdown-item" href="<?=getUrl("Estratos","Estratos","getInsert")?>">Registrar Estratos</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hobbies
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="<?=getUrl("Hobbies","Hobbies","consult")?>">Consultar Hobbies</a></li>
+            <li><a class="dropdown-item" href="<?=getUrl("Hobbies","Hobbies","getInsert")?>">Registrar Hobbies</a></li>
+          </ul>
+        </li>
         </li>
         <b>Bienvenido, Señor <?= $_SESSION['usu_nombre']?></b>
       </ul>
