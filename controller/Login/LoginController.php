@@ -8,7 +8,7 @@ function validar() {
         $obj = new UsuariosModel();
 
         $obj -> setUsuDocum($_POST['usu_docum']);
-        $obj -> setUsuClave($_POST['usu_clave']);
+        $obj -> setUsuClave($this -> encryptPassword($_POST['usu_clave']));
         $obj -> setRolId($_POST['rol_id']);
 
         $sql="SELECT * FROM usuarios where usu_docum=".$obj ->getUsuDocum()." and usu_clave='".$obj -> getUsuClave()."' and rol_id=".$obj -> getRolId()."";
@@ -40,5 +40,11 @@ function validar() {
     function cerrarSesion() {
         session_destroy();
         redirect("index.php");
+    }
+
+    function encryptPassword($password) {
+      $encryptPass = openssl_encrypt($password, "camellia-256-ofb", "2397583111", 0, "1235678976898761");
+
+      return $encryptPass;
     }
 }

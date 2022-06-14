@@ -3,7 +3,8 @@
 </div>
 <div class="mt-5">
     <?php
-        foreach($usuario as $usu){
+      foreach($usuario as $usu){
+      $clave = $this -> decryptPassword($usu['usu_clave']);
     ?>
     <form action="<?=getUrl("Usuarios","Usuarios","postUpdate")?>" method="post">
         <div class="row">
@@ -18,7 +19,7 @@
             </div>
 	    <div class="col-md-4">
                 <label>Clave</label>
-		<input type="password" name="usu_clave" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_clave']?>">
+		<input type="password" name="usu_clave" class="form-control" placeholder="Nombre del Estrato" value="<?=  $clave ?>">
 	    </div>
 	    <div class="col-md-4">
 		<label>Rol</label>

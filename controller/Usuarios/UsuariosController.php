@@ -17,7 +17,7 @@ class UsuariosController {
     $obj -> setUsuId($obj -> autoincrement('usu_id', 'usuarios'));
     $obj -> setUsuDocum($_POST['usu_docum']);
     $obj -> setUsuNombre($_POST['usu_nombre']);
-    $obj -> setUsuClave($_POST['usu_clave']);
+    $obj -> setUsuClave($this -> encryptPassword($_POST['usu_clave']));
     $obj -> setRolId($_POST['rol_id']);
     
     $ejecutar = $obj -> insert('usuarios', array('usu_id', 'usu_docum', 'usu_nombre', 'usu_clave', 'rol_id'), array($obj -> getUsuId(), $obj -> getUsuDocum(), $obj -> getUsuNombre(), $obj -> getUsuClave(), $obj -> getRolId()));
@@ -82,7 +82,7 @@ class UsuariosController {
     $obj -> setUsuId($_POST['usu_id']);
     $obj -> setUsuNombre($_POST['usu_nombre']);
     $obj -> setUsuDocum($_POST['usu_docum']);
-    $obj -> setUsuClave($_POST['usu_clave']);
+    $obj -> setUsuClave($this -> encryptPassword($_POST['usu_clave']));
     $obj -> setRolId($_POST['rol_id']);
 
     $sql = "UPDATE usuarios SET usu_docum=".$obj -> getUsuDocum().", usu_nombre='".$obj -> getUsuNombre()."', usu_clave='". $obj -> getUsuClave()."',rol_id=".$obj -> getRolId()." WHERE usu_id=". $obj -> getUsuId();
@@ -113,6 +113,17 @@ class UsuariosController {
 
   public function postDelete() {
 
+  }
+
+  function encryptPassword($password) {
+      $encryptPass = openssl_encrypt($password, "camellia-256-ofb", "2397583111", 0, "1235678976898761");
+
+      return $encryptPass;
+    }
+  function decryptPassword($password) {
+    $decryptPass = openssl_decrypt($password, "camellia-256-ofb", "2397583111", 0, "1235678976898761");
+
+    return $decryptPass;
   }
 }
 
