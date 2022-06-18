@@ -85,8 +85,8 @@ class UsuariosController {
     $obj -> setUsuClave($this -> encryptPassword($_POST['usu_clave']));
     $obj -> setRolId($_POST['rol_id']);
 
-    $sql = "UPDATE usuarios SET usu_docum=".$obj -> getUsuDocum().", usu_nombre='".$obj -> getUsuNombre()."', usu_clave='". $obj -> getUsuClave()."',rol_id=".$obj -> getRolId()." WHERE usu_id=". $obj -> getUsuId();
-    $ejecutar = $obj -> sentencia($sql);
+    $ejecutar = $obj -> update('usuarios', array('usu_nombre', 'usu_docum', 'usu_clave', 'rol_id'), array($obj -> getUsuNombre(), $obj -> getUsuDocum(), $obj -> getUsuClave(), $obj -> getRolId()), 'usu_id', $obj -> getUsuId());
+    
     if ($ejecutar) {
       ?>
       <script>
@@ -112,7 +112,15 @@ class UsuariosController {
   }
 
   public function postDelete() {
+    $obj = new UsuariosModel();
+    $obj -> setUsuId($_POST['usu_id']);
+    $ejecutar = $obj -> delete('usuarios', 'usu_id', $obj -> getUsuId());
 
+    if ($ejecutar) {
+      redirect(getUrl('Usuarios', 'Usuarios', 'consult'));
+    } else {
+      echo "Ha habido un error";
+    }
   }
 
   function encryptPassword($password) {

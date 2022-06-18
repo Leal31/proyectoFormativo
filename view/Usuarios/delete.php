@@ -5,7 +5,7 @@
     <?php
         foreach($usuario as $usu){
     ?>
-    <form action="<?=getUrl("Usuarios","Usuarios","postUpdate")?>" method="post">
+    <form action="<?=getUrl("Usuarios","Usuarios","postDelete")?>" method="post">
         <div class="row">
             <div class="col-md-4">
                 <label>Documento</label>
