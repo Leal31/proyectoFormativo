@@ -52,7 +52,17 @@
           <li><a class="dropdown-item" href="<?=getUrl("Hobbies","Hobbies","consult")?>">Consultar Hobbies</a></li>
             <li><a class="dropdown-item" href="<?=getUrl("Hobbies","Hobbies","getInsert")?>">Registrar Hobbies</a></li>
           </ul>
+	</li>
+	<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pacientes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="<?=getUrl("Hobbies","Hobbies","consult")?>">Consultar Pacientes</a></li>
+            <li><a class="dropdown-item" href="<?=getUrl("Pacientes","Pacientes","getInsert")?>">Registrar Pacientes</a></li>
+          </ul>
         </li>
+
         </li>
         <b>Bienvenido, Señor <?= $_SESSION['usu_nombre']?></b>
       </ul>
