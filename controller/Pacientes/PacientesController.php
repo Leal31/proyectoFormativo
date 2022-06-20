@@ -58,8 +58,10 @@
 	    function detalle(){
 		$obj=new PacientesModel();
 		$pac_id=$_GET['pac_id'];
-		$sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
+		$sql="select p.pac_id, p.pac_nombre, p.pac_apellido, p.pac_telefono, p.pac_direccion, g.gen_nombre FROM pacientes as p, generos as g WHERE p.pac_id=$pac_id and p.gen_id=g.gen_id";
 		$pacientes=$obj->sentencia($sql);
+		$sql="SELECT h.hob_nombre FROM pacientes_hobbies as ph, hobbies as h WHERE ph.pac_id=$pac_id and ph.hob_id=h.hob_id";
+		$hobbies=$obj->sentencia($sql);
 		include_once '../view/Pacientes/detalle.php';
 	    }
             function update(){

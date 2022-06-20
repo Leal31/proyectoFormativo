@@ -2,29 +2,42 @@
     <h3 class="display-4">Consultar Pacientes</h3>
 </div>
 <div class="mt-5">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-		<th>Nombres</th>
-		<th>Apellidos</th>
-		<th>Telefono</th>
-                <th colspan="3">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
             <?php
 		foreach ($pacientes as $pac){
 		    ?>
-		    <tr>
-			<td><?=$pac['pac_id']?></td>
-			<td><?=$pac['pac_nombre']?></td>
-			<td><?=$pac['pac_apellido']?></td>
-			<td><?=$pac['pac_telefono']?></td>
-			<td><a href="<?=getUrl("Usuarios","Usuarios","detalle",array("usu_id"=>$usu['usu_id']))?>"><button class="btn btn-info">Ver Detalle</button></a></td>
-			<td><a href="<?=getUrl('Pacientes','Pacientes','getUpdate',array('pac_id'=>$pac['pac_id']))?>"><button class="btn btn-warning">Editar</button></a></td>
-			<td><a href="<?=getUrl("Usuarios","Usuarios","getDelete",array("usu_id"=>$usu['usu_id']))?>"><button class="btn btn-danger">Eliminar</button></a></td>
-		    </tr>
+		    <table class="table">
+			<tbody>
+			    <tr>
+				<th>Id</th>
+				<td><?=$pac['pac_id']?></td>
+				<th>Nombre</th>
+				<td><?=$pac['pac_nombre']?></td>
+				<th>Apellidos</th>
+				<td><?=$pac['pac_apellido']?></td>
+			    </tr>
+			    <tr>
+				<th>Telefono</th>
+				<td><?=$pac['pac_telefono']?></td>
+				<th>Direccion</th>
+				<td><?=$pac['pac_direccion']?></td>
+				<th>Genero</th>
+				<td><?=$pac['gen_nombre']?></td>
+			    </tr>
+			    <tr>
+				<th colspan="6"><center>Hobbies</center></th>
+				<?php
+				    foreach($hobbies as $hob){
+					?>
+					<tr>					
+					    <td colspan="6"><?=$hob['hob_nombre']?></td>
+					</tr>
+					<?php
+				    }
+				?>
+			    </tr>
+
+			</tbody>
+		    </table>
 		    <?php
 		}
             ?>
