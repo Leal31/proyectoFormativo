@@ -51,14 +51,21 @@
                     }
             function consult(){
                 $obj = new PacientesModel();
-                $sql="SELECT * FROM hobbies";
-                $hobbies = $obj->sentencia($sql);
+                $sql="SELECT * FROM pacientes";
+                $pacientes = $obj->sentencia($sql);
                 include_once '../view/Pacientes/consult.php';
-        }
+	    }
+	    function detalle(){
+		$obj=new PacientesModel();
+		$pac_id=$_GET['pac_id'];
+		$sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
+		$pacientes=$obj->sentencia($sql);
+		include_once '../view/Pacientes/detalle.php';
+	    }
             function update(){
                 $obj = new PacientesModel();
-                $hob_id = $_POST['hob_id'];
-                $hob_nombre = $_POST['hob_nombre'];
+                $pac_id = $_POST['hob_id'];
+                $pac_nombre = $_POST['hob_nombre'];
     
                 $consulta = $obj -> update("hobbies", array('hob_nombre'), array($hob_nombre), 'hob_id', $hob_id);
     

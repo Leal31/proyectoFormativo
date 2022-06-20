@@ -58,7 +58,7 @@
             Pacientes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="<?=getUrl("Hobbies","Hobbies","consult")?>">Consultar Pacientes</a></li>
+          <li><a class="dropdown-item" href="<?=getUrl("Pacientes","Pacientes","consult")?>">Consultar Pacientes</a></li>
             <li><a class="dropdown-item" href="<?=getUrl("Pacientes","Pacientes","getInsert")?>">Registrar Pacientes</a></li>
           </ul>
         </li>
