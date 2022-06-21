@@ -80,7 +80,6 @@
 		include_once '../view/Pacientes/detalle.php';
 	    }
         function update(){
-<<<<<<< HEAD
             $obj = new PacientesModel;
                 $docum= $_POST['pac_docum'];
                 $nombre= $_POST['pac_nombre'];
@@ -110,19 +109,6 @@
                 gen_id = '$genero', estr_id = '$estr' WHERE pac_id = $docum";
 
                 $obj->sentencia($sqlU);
-=======
-        $obj = new PacientesModel();
-        $hob_id = $_POST['hob_id'];
-        $hob_nombre = $_POST['hob_nombre'];
-
-        $consulta = $obj -> update("hobbies", array('hob_nombre'), array($hob_nombre), 'hob_id', $hob_id);
-
-        if ($consulta){
-            redirect(getUrl("Pacientes","Pacientes","consult"));
-            }else {
-                echo "Verificar el proceso update";
-            }
->>>>>>> fb67cad6fdcab1ce96c2f3a5c2bc7aef4b3e25ce
         }
     
             function delete(){
