@@ -17,14 +17,22 @@
             $obj = new PacientesModel();
             $hob_id = $_GET['hob_id'];
             $sql="SELECT * FROM hobbies WHERE hob_id=$hob_id";
-            $hobbies = $obj -> sentencia($sql);
+	    $hobbies = $obj -> sentencia($sql);
             include_once '../view/Pacientes/update.php';
         }
         function getDelete(){
-            $obj =new PacientesModel();
-            $hob_id =$_GET['hob_id'];
-            $sql="SELECT * FROM hobbies WHERE hob_id=$hob_id";
-            $hobbies = $obj -> sentencia($sql);
+	    $obj =new PacientesModel();
+	    $pac_id = $_GET['pac_id'];
+	    $sql = "SELECT * FROM generos";
+	    $sql2 = "SELECT * FROM hobbies";
+	    $sql3 = "SELECT * FROM estratos";
+	    $sql4 = "SELECT * FROM pacientes WHERE pac_id=$pac_id";
+	    $sql5 = "SELECT * FROM pacientes_hobbies where pac_id=$pac_id";
+	    $generos = $obj -> sentencia($sql);
+	    $hobbies = $obj -> sentencia($sql2);
+	    $estratos = $obj -> sentencia($sql3);
+	    $paciente = $obj -> sentencia($sql4);
+	    $paciente_hobbies = $obj -> sentencia($sql5);
             include_once '../view/Pacientes/delete.php';
         }
         function insert() {
@@ -79,15 +87,16 @@
         }
     
             function delete(){
-                $obj = new PacientesModel();
-                $hob_id = $_POST['hob_id'];
-                $consulta = $obj -> delete('hobbies', 'hob_id', $hob_id);
-                    
-                if ($consulta) {
-                    redirect(getUrl("Pacientes","Pacientes","consult"));
-                }else {
-                    echo "Verificar el proceso de delete";
-                }
+	      $obj = new PacientesModel();
+	      $obj -> setPacId($_POST['pac_id']);
+
+	      $ejecutar = $obj -> delete('pacientes_hobbies', 'pac_id', $obj -> getPacId());
+	      if ($ejecutar) {
+		$ejecutar = $obj -> delete('pacientes', 'pac_id', $obj -> getPacId());
+		echo "<script>alert('El paciente se elimino con exito');</script>";
+		redirect(getUrl('Pacientes', 'Pacientes', 'consult'));
+	      }
+
             }    
     }
 ?>
