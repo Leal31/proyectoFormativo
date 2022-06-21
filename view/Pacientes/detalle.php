@@ -1,5 +1,5 @@
 <div class="mt-5">
-    <h3 class="display-4">Consultar Pacientes</h3>
+    <h3 class="display-4">Detalles de Paciente</h3>
 </div>
 <div class="mt-5">
             <?php
@@ -22,6 +22,10 @@
 				<td><?=$pac['pac_direccion']?></td>
 				<th>Genero</th>
 				<td><?=$pac['gen_nombre']?></td>
+			    </tr>
+			    <tr>
+				<th>Estrato</th>
+				<td colspan="5"><?=$pac['estr_nombre']?></td>
 			    </tr>
 			    <tr>
 				<th colspan="6"><center>Hobbies</center></th>
