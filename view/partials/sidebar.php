@@ -7,54 +7,91 @@
     </a>
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Usuarios
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#paciente-collapse" aria-expanded="false">
+          Paciente
         </button>
-        <div class="collapse show" id="home-collapse">
+        <div class="collapse" id="paciente-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="<?=getUrl('Usuarios', 'Usuarios', 'getInsert')?>" class="link-dark rounded">Registrar Usuario</a></li>
-            <li><a href="#" class="link-dark rounded">Updates</a></li>
-            <li><a href="#" class="link-dark rounded">Reports</a></li>
+            <li><a href="<?=getUrl('Usuarios','Usuarios','getInsert')?>" class="link-dark rounded">Registrar</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Consultar</a></li>
           </ul>
         </div>
       </li>
       <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Dashboard
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#historia-collapse" aria-expanded="false">
+          Historia
         </button>
-        <div class="collapse" id="dashboard-collapse">
+        <div class="collapse" id="historia-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Registrar</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Consultar</a></li>
           </ul>
         </div>
       </li>
       <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          Orders
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#usuario-collapse" aria-expanded="false">
+          Usuario
         </button>
-        <div class="collapse" id="orders-collapse">
+        <div class="collapse" id="usuario-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New</a></li>
-            <li><a href="#" class="link-dark rounded">Processed</a></li>
-            <li><a href="#" class="link-dark rounded">Shipped</a></li>
-            <li><a href="#" class="link-dark rounded">Returned</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Registrar</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Consultar</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#estrato-collapse" aria-expanded="false">
+          Estrato
+        </button>
+        <div class="collapse" id="estrato-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Registrar</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Consultar</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#genero-collapse" aria-expanded="false">
+          Genero
+        </button>
+        <div class="collapse" id="genero-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Registrar</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Consultar</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#hobbies-collapse" aria-expanded="false">
+          Hobbies
+        </button>
+        <div class="collapse" id="hobbies-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Registrar</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Consultar</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#rol-collapse" aria-expanded="false">
+          Rol
+        </button>
+        <div class="collapse" id="rol-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Registrar</a></li>
+            <li><a href="<?=getUrl('','','')?>" class="link-dark rounded">Consultar</a></li>
           </ul>
         </div>
       </li>
       <li class="border-top my-3"></li>
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-          Account
+          <?= $_SESSION['usu_nombre']?>
         </button>
         <div class="collapse" id="account-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New...</a></li>
-            <li><a href="#" class="link-dark rounded">Profile</a></li>
-            <li><a href="#" class="link-dark rounded">Settings</a></li>
-            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+            <li><a href="<?= getUrl("Login", "Login", "cerrarSesion") ?>" class="link-dark rounded">Cerrar Sesion</a></li>
           </ul>
         </div>
       </li>
