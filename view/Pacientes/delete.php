@@ -3,43 +3,84 @@
 </div>
 <div class="mt-5">
     <?php
-        foreach($usuario as $usu){
+        foreach($paciente as $pac){
     ?>
     <form action="<?=getUrl("Pacientes","Pacientes","delete")?>" method="post">
-        <div class="row">
-            <div class="col-md-4">
-                <label>Documento</label>
-		<input type="hidden" name="usu_id" value="<?=$usu['usu_id']?>">
-		<input type="text" name="usu_docum" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_docum']?>" readonly>
+	<div class="row">
+	  <div class="col-md-4">
+                <label>Documento Paciente: </label>
+		<input required type="text" name="pac_id" class="form-control" placeholder="Documento de paciente" value="<?=$pac['pac_id']?>" readonly>
 	    </div>
+
+            <div class="col-md-4">
+                <label>Nombre Paciente: </label>
+		<input required type="text" name="pac_nombre" class="form-control" placeholder="Nombre de paciente" value="<?=$pac['pac_nombre']?>" readonly>
+	    </div>
+	    
 	    <div class="col-md-4">
-                <label>Nombre</label>
-		<input type="text" name="usu_nombre" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_nombre']?>" readonly>
+                <label>Apellido Paciente: </label>
+		<input required type="text" name="pac_apellido" class="form-control" placeholder="Apellido de paciente" value="<?=$pac['pac_apellido']?>" readonly>
             </div>
 	    <div class="col-md-4">
-                <label>Clave</label>
-		<input type="password" name="usu_clave" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_clave']?>" readonly>
+                <label>Dirección Paciente: </label>
+		<input required type="text" name="pac_direccion" class="form-control" placeholder="Direccion de paciente" value="<?=$pac['pac_direccion']?>" readonly>
 	    </div>
 	    <div class="col-md-4">
-		<label>Rol</label>
-		<select class="form-control" name="rol_id" readonly>
-<?php
-	  foreach ($roles as $rol) {
-	    if ($usu['rol_id'] == $rol['rol_id']) {
-	      $select = "selected";
-	    } else {
-	      $select = "";
-	    }
-	    ?>
-	      <option value="<?= $rol['rol_id']?>" <?=$select?> ><?=$rol['rol_nombre']?></option>
-	    <?php
+                <label>Telefono Paciente: </label>
+		<input required type="text" name="pac_telefono" class="form-control" placeholder="Telefono de paciente" value="<?=$pac['pac_telefono']?>" readonly>
+	    </div>
+	    <div class="col-md-4">
+	      <label>Hobbies: </label><br>
+		<?php 
+		foreach($hobbies as $hob) {
 
-	  }
-?>
-		</select>
+		foreach ($paciente_hobbies as $pac_hob) {
+		  $checked = "";
+		  if ($pac_hob['hob_id'] == $hob['hob_id']) {
+		      $checked = "checked";
+		    ?>
+		      <input type="checkbox" name="hobbies[]" value="<?= $hob['hob_id']?>" onclick="return false;" <?=$checked?>>
+		      <label><?= $hob['hob_nombre']?></label><br>
+		<?php
+		}
+		} }
+		?>      
+	    </div>
+	    <div class="col-md-4">
+	      <label>Genero: </label>
+	      <select class="form-control" name="gen_id" disabled>
+	      <option value="">-----------</option>
+	      <?php
+		foreach ($generos as $gen) {
+		  $selected = "";
+		  if ($pac['gen_id'] == $gen['gen_id']) {
+		    $selected = "selected";
+		  }
+		  ?>
+		    <option value="<?= $gen['gen_id']?>" <?=$selected?>><?=$gen['gen_nombre']?></option >
+		<?php
+		  }
+		?>
+	      </select>
+	    </div>
+	    <div class="col-md-4">
+	      <label>Estrato: </label><br>
+	      <?php
+		  
+		foreach ($estratos as $estr) {
+		  $checked = "";
+		  if ($pac['estr_id'] == $estr['estr_id']) {
+		    $checked = "checked";
+		  }
+		  ?>
+		    <input type="radio" name="estr_id" value="<?= $estr['estr_id']?>" <?=$checked?> disabled>
+		    <label><?=$estr['estr_nombre']?></label><br>
+	      <?php
+		}
+	      ?>
 	    </div>
             <div class="col-md-4 mt-4">
-                <input type="submit" value="Enviar" class="btn btn-danger mt-2">
+                <input type="submit" value="Enviar" class="btn btn-success mt-2">
             </div>
         </div>
     </form>
