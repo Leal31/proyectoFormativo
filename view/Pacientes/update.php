@@ -29,27 +29,51 @@
                 <label>Telefono</label>
 		<input type="number" name="pac_tel" class="form-control" placeholder="Telefono del Paciente" value="<?=$pac['pac_telefono']?>">
         </div>
-            <div class="col-md-4 mt-4">
-                <input type="submit" value="Enviar" class="btn btn-success mt-2">
-            </div>
+
         </div>
-		
-		
+	<?php
+	}
+	?>
 	<div class="container">
 		<div class="row">
+			
+			<div class="col-4">Hobbies:<br>
 			<?php 
-			$sqli = "SELECT * FROM hobbies";
-			$lo = $obj->sentencia($sqli);
-			?>
-			<div class="col-4">Hobbies:
-			<?php	
-			foreach ($lo as $key) {
-			?>
-				<br><label for=""><input type="checkbox" name="<?=$key['hob_id']?>" id="" value="<?= $key['hob_nombre']?>"> <?= $key['hob_nombre']?></label>
-
-			<?php
+			$num = mysqli_num_rows($paciente_hobbies);
+			if ($num == 0){
+				foreach ($hobbies as $hob){
+					?>
+		    	<input type="checkbox" name="<?=$hob['hob_id']?>" value="<?=$hob['hob_id']?>">
+		      	<label><?=$hob['hob_nombre']?></label><br>
+					<?php 
+				}}
+			//}
+			
+			foreach($hobbies as $hob) {
+ 			$hobid= $hob['hob_id'];
+			$sql4 = "SELECT * FROM pacientes_hobbies WHERE pac_id = $pac_id AND hob_id = '$hobid' ";
+			$paciente_hobbiess = $obj->sentencia($sql4);
+			$num2 = mysqli_num_rows($paciente_hobbiess);
+			if ($num2 == 0){
+				?>
+					<input type="checkbox" name="<?=$hob['hob_id']?>" value="<?= $hob['hob_id']?>">
+					<label><?= $hob['hob_nombre']?></label><br>
+				<?php
 			}
-			?>
+			foreach ($paciente_hobbiess as $pac_hob) {
+		 	$checked = "";
+			
+			if ($pac_hob['hob_id'] == $hob['hob_id']) {
+		      $checked = "checked";
+			 ?>
+		    <input type="checkbox" name="<?=$hob['hob_id']?>" value="<?= $hob['hob_id']?>" <?=$checked?>>
+		      <label><?= $hob['hob_nombre']?></label><br>
+		<?php
+		
+		} }}
+		
+		?>    
+
 			</div>	
 				<div class="col-4">
 					<label for="ingresoGenero" class="form-label">Genero: </label>
@@ -60,25 +84,18 @@
 						</select>
       			</div>
 		  		<div class="col-4">
-					<label for="ingresoEstrato" class="form-label">Estrato: </label>
-					<select class="form-select" aria-label="-------" name="estr_id">
-					<option selected>---------------</option>
-					<?php 
-						$sqli = "SELECT * FROM estratos";
-						$lo = $obj->sentencia($sqli);
-						foreach ($lo as $key) {
-						?>
-						
-						<option value="<?=$key['estr_id']?>"><?=$key['estr_nombre']?></option>
-						<?php
-						}
-					?>
-					</select>
+				<label for="ingresoGenero" class="form-label">Estrato: </label><br>
+				<?php 
+				foreach 
+				?>
+				            <div class="col-md-4 mt-4">
+                <input type="submit" value="Enviar" class="btn btn-success mt-2">
+            </div>
       			</div>
 	  		</div>
 		</div>
     </form>
     <?php
-        }
+        
     ?>
 </div>

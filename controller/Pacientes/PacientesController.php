@@ -20,12 +20,15 @@
             $sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
             $sql2="SELECT * FROM hobbies";
             $sql3="SELECT * FROM estratos";
+            $sql4 = "SELECT * FROM pacientes_hobbies WHERE pac_id = $pac_id ";
             
             $pacientes = $obj -> sentencia($sql);
             $hobbies= $obj -> sentencia($sql2);
             $estratos= $obj -> sentencia($sql3);
+            $paciente_hobbies = $obj->sentencia($sql4);
 
-            include_once '../view/Pacientes/update.php';
+
+            include '../view/Pacientes/update.php';
         }
         function getDelete(){
 	    $obj =new PacientesModel();

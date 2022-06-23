@@ -5,11 +5,10 @@
     foreach ($pacientes as $pac){
 ?>
 <div class="mt-5">
-    <form method="post">
+    
         <div class="row">
             <div class="col-md-4">
                 <label>Documento</label>
-		<input type="hidden" name="pac_id" value="<?=$pac['pac_id']?>">
 		<input type="text" name="pac_docum" class="form-control" placeholder="Documento" value="<?=$pac['pac_id']?>" readonly>
 	    </div>
 	    <div class="col-md-4">
@@ -38,8 +37,9 @@
         </div>
 
         <div class="mt-5">
-    <form action="<?php echo getUrl("Historias","Historias", "insert");?>" method="post">
-         <input type="hidden" value="<?=$pac_id?>">
+        <form action="<?php echo getUrl("Historias","Historias", "insert");?>" method="post">
+
+         <input type="hidden" name="pac_id" value="<?=$pac_id?>">
         <div class="row">
             <div class="col-md-4">
                 <label class="form-label">Motivo</label>

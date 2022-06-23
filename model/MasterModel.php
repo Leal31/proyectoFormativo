@@ -31,7 +31,7 @@ class MasterModel extends Connection{
       }
       $sql = trim($sql, ','); // quitamos la ultima coma
       $sql .= ")"; // cerramos el sql
-
+      
       $result = mysqli_query($this -> getConnect(), $sql); // ejecutamos el sql creado // ejecutamos el sql creado
 
       return $result;
