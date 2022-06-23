@@ -19,14 +19,15 @@
             $pac_id = $_GET['pac_id'];
             $sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
             $sql2="SELECT * FROM hobbies";
-            $sql3="SELECT * FROM estratos";
-            $sql4 = "SELECT * FROM pacientes_hobbies WHERE pac_id = $pac_id ";
-            
+	    $sql3="SELECT * FROM estratos";
+	    $sql4="SELECT * FROM generos";
+	    $sql5="SELECT * FROM pacientes_hobbies WHERE pac_id=$pac_id";
+	               
             $pacientes = $obj -> sentencia($sql);
             $hobbies= $obj -> sentencia($sql2);
             $estratos= $obj -> sentencia($sql3);
-            $paciente_hobbies = $obj->sentencia($sql4);
-
+	    $generos=$obj -> sentencia($sql4);
+	    $paciente_hobbies=$obj -> sentencia($sql5);
 
             include '../view/Pacientes/update.php';
         }
@@ -94,7 +95,7 @@
                 $sqlH= "SELECT hob_id FROM hobbies";
                 $hobbies= $obj->sentencia($sqlH);
                 $delete = "DELETE FROM pacientes_hobbies WHERE pac_id = $docum";
-                    $sqlD = $obj->sentencia($delete);   
+                $sqlD = $obj->sentencia($delete);   
                 foreach ($hobbies as $key) {
                        
                     if (isset($_POST[$key['hob_id']])){
@@ -111,7 +112,9 @@
                 pac_direccion = '$direccion', pac_telefono = '$telefono',
                 gen_id = '$genero', estr_id = '$estr' WHERE pac_id = $docum";
 
-                $obj->sentencia($sqlU);
+		$obj->sentencia($sqlU);
+		echo "<script>alert('El paciente ha sido actualizado con exito')</script>";
+		redirect(getUrl("Pacientes", "Pacientes", "consult"));
         }
     
             function delete(){

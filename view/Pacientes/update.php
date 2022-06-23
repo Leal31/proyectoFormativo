@@ -73,22 +73,42 @@
 		} }}
 		
 		?>    
+	      	</div>	
+		<div class="col-4">
+		<label for="ingresoGenero" class="form-label">Genero: </label>
+		<select class="form-select" aria-label="-------" name="gen_id">
+		    <option >---------------</option>
+<?php
+		  foreach($generos as $gen) {
+		    if ($gen['gen_id'] == $pac['gen_id']) {
+		      $selected = "selected";
+		    } else {
+		      $selected = "";
+		    }
 
-			</div>	
-				<div class="col-4">
-					<label for="ingresoGenero" class="form-label">Genero: </label>
-						<select class="form-select" aria-label="-------" name="gen_id">
-	  						<option selected>---------------</option>
-	  						<option value="1">Masculino</option>
-	  						<option value="2">Femenino</option>
-						</select>
+?>
+		      <option value="<?=$gen['gen_id']?>" <?=$selected?>><?=$gen['gen_nombre']?></option>
+<?php
+		  }
+?>
+		</select>
       			</div>
 		  		<div class="col-4">
 				<label for="ingresoGenero" class="form-label">Estrato: </label><br>
-				<?php 
-				foreach 
-				?>
-				            <div class="col-md-4 mt-4">
+<?php
+			foreach($estratos as $estr) {
+			  if ($estr['estr_id'] == $pac['estr_id']) {
+			    $checked = "checked";
+			  } else {
+			    $checked = "";
+			  }
+?>
+  <input type="radio" name="estr_id" value="<?=$estr['estr_id']?>" <?=$checked?>>
+  <label><?=$estr['estr_nombre']?></label><br>
+<?php
+			}
+?>
+		<div class="col-md-4 mt-4">
                 <input type="submit" value="Enviar" class="btn btn-success mt-2">
             </div>
       			</div>

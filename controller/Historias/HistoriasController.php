@@ -10,7 +10,7 @@ class HistoriasController {
         $pacientes = $obj->sentencia($sql1);
         include_once '../view/Historias/insert.php';
     }    
-    function insert(){
+   function insert(){
         
         $obj = new Pacientesmodel();
 
@@ -30,7 +30,8 @@ class HistoriasController {
         
         $ejecutar = $obj -> insert('historias', array('hist_id', 'hist_motv', 'hist_esfod', 'hist_cilod', 'hist_ejeod', 'hist_esfoi', 'hist_ciloi', 'hist_ejeoi', 'hist_diaod', 'hist_diaoi', 'hist_recom', 'pac_id'), 
         array($hist_id, $hist_motv, $hist_esfod, $hist_cilod, $hist_ejeod, $hist_esfoi, $hist_ciloi, $hist_ejeoi, $hist_diaod, $hist_diaoi, $hist_recom, $pac_id));
-        if ($ejecutar) {
+	if ($ejecutar) {
+	    echo "<script>alert('La historia fue creada satisfactoriamente');</script>";
             redirect(getUrl("Pacientes", "Pacientes", "consult"));
         }else {
             echo "error al registrar";
