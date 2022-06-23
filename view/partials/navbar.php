@@ -7,4 +7,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     </div>
   </div>
+  <div class="container-fluid">
+  </div>
+   <div class="container-fluid">
+  </div>
+ <div class="container-fluid">
+  </div>
+ <div class="container-fluid">
+    <img src="img/avatar.svg" style="width: 20px; height: 20px; padding: 0;"><strong>Bienvenido, <?=$_SESSION['usu_nombre']?></strong>
+  </div>
+
 </nav>
