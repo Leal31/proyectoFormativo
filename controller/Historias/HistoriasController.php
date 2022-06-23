@@ -1,11 +1,12 @@
 <?php
+include '../model/Pacientes/PacientesModel.php';
 
 class HistoriasController {
 
     function getInsert(){
         $obj = new PacientesModel();
         $pac_id = $_GET['pac_id'];
-        $sql1 ="SELECT * FROM pacientes";
+        $sql1 ="SELECT * FROM pacientes where pac_id=$pac_id";
         $pacientes = $obj->sentencia($sql1);
         include_once '../view/Historias/insert.php';
     }    
@@ -22,7 +23,7 @@ class HistoriasController {
         $hist_diaod = $_POST['hist_diaod'];
         $hist_diaoi = $_POST['hist_diaoi'];
         $hist_recom = $_POST['hist_recom'];
-        $pac_id = $_GET['pac_id'];
+        $pac_id = $_POST['pac_id'];
 
         $hist_id = $obj -> autoincrement("hist_id","historias");
         
