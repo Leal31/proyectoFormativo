@@ -19,15 +19,15 @@
             $pac_id = $_GET['pac_id'];
             $sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
             $sql2="SELECT * FROM hobbies";
-	    $sql3="SELECT * FROM estratos";
-	    $sql4="SELECT * FROM generos";
-	    $sql5="SELECT * FROM pacientes_hobbies WHERE pac_id=$pac_id";
+	    	$sql3="SELECT * FROM estratos";
+	    	$sql4="SELECT * FROM generos";
+	    	$sql5="SELECT * FROM pacientes_hobbies WHERE pac_id=$pac_id";
 	               
-            $pacientes = $obj -> sentencia($sql);
-            $hobbies= $obj -> sentencia($sql2);
-            $estratos= $obj -> sentencia($sql3);
-	    $generos=$obj -> sentencia($sql4);
-	    $paciente_hobbies=$obj -> sentencia($sql5);
+        	$pacientes=$obj -> sentencia($sql);
+        	$hobbies=$obj -> sentencia($sql2);
+        	$estratos=$obj -> sentencia($sql3);
+	    	$generos=$obj -> sentencia($sql4);
+	    	$paciente_hobbies=$obj -> sentencia($sql5);
 
             include '../view/Pacientes/update.php';
         }
@@ -85,36 +85,35 @@
 	    }
         function update(){
             $obj = new PacientesModel;
-                $docum= $_POST['pac_docum'];
-                $nombre= $_POST['pac_nombre'];
-                $apellido= $_POST['pac_apellido'];
-                $direccion= $_POST['pac_direccion'];
-                $telefono = $_POST['pac_tel'];
-                $genero = $_POST['gen_id'];
-                $estr = $_POST['estr_id'];
-                $sqlH= "SELECT hob_id FROM hobbies";
-                $hobbies= $obj->sentencia($sqlH);
-                $delete = "DELETE FROM pacientes_hobbies WHERE pac_id = $docum";
-                $sqlD = $obj->sentencia($delete);   
-                foreach ($hobbies as $key) {
-                       
-                    if (isset($_POST[$key['hob_id']])){
-                        $id= $obj->autoincrement("pac_hob_id", "pacientes_hobbies");
-                        $hob_id = $key['hob_id'];
-                        $sqlIN = "INSERT INTO pacientes_hobbies VALUES('$id', '$docum', '$hob_id')";
-                        $obj->sentencia($sqlIN);
-                    }
-                    //$sqlU = "UPDATE  paciente SET
-                    //pac_nombre = '$nombre', pac_apellido = '$apellido', pac_direccion = '$direccion',
-                    //pac_telefono = '$telefono', gen_id = '$genero', estr_id = '$estr' WHERE pac_id = '$docum'";
-                }
-                $sqlU= "UPDATE pacientes SET  pac_nombre = '$nombre', pac_apellido = '$apellido',
-                pac_direccion = '$direccion', pac_telefono = '$telefono',
-                gen_id = '$genero', estr_id = '$estr' WHERE pac_id = $docum";
-
-		$obj->sentencia($sqlU);
-		echo "<script>alert('El paciente ha sido actualizado con exito')</script>";
-		redirect(getUrl("Pacientes", "Pacientes", "consult"));
+            $docum= $_POST['pac_docum'];
+            $nombre= $_POST['pac_nombre'];
+            $apellido= $_POST['pac_apellido'];
+            $direccion= $_POST['pac_direccion'];
+            $telefono = $_POST['pac_tel'];
+            $genero = $_POST['gen_id'];   
+			$estr = $_POST['estr_id'];
+			$sqlH= "SELECT hob_id FROM hobbies";
+			$hobbies= $obj->sentencia($sqlH);
+			$delete = "DELETE FROM pacientes_hobbies WHERE pac_id = $docum";
+			$sqlD = $obj->sentencia($delete);   
+			foreach ($hobbies as $key) {
+					
+				if (isset($_POST[$key['hob_id']])){
+					$id= $obj->autoincrement("pac_hob_id", "pacientes_hobbies");
+					$hob_id = $key['hob_id'];
+					$sqlIN = "INSERT INTO pacientes_hobbies VALUES('$id', '$docum', '$hob_id')";
+					$obj->sentencia($sqlIN);
+				}
+			}
+			$sqlU = $obj -> update('pacientes', array('pac_nombre', 'pac_apellido', 'pac_direccion', 'pac_telefono', 'gen_id', 'estr_id'),
+			array($nombre, $apellido, $direccion, $telefono, $genero, $estr), 'pac_id', $docum);
+			if ($sqlU) {
+				echo "<script>alert('El paciente ha sido actualizado con exito')</script>";
+				redirect(getUrl("Pacientes", "Pacientes", "consult"));
+			} else {
+				echo "Hubo un error";
+			}
+			
         }
     
             function delete(){

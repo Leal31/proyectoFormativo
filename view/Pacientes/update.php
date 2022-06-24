@@ -39,15 +39,7 @@
 			
 			<div class="col-4">Hobbies:<br>
 			<?php 
-			$num = mysqli_num_rows($paciente_hobbies);
-			if ($num == 0){
-				foreach ($hobbies as $hob){
-					?>
-		    	<input type="checkbox" name="<?=$hob['hob_id']?>" value="<?=$hob['hob_id']?>">
-		      	<label><?=$hob['hob_nombre']?></label><br>
-					<?php 
-				}}
-			//}
+			
 			
 			foreach($hobbies as $hob) {
  			$hobid= $hob['hob_id'];
