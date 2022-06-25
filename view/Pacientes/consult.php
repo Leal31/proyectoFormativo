@@ -14,7 +14,10 @@
         </thead>
         <tbody>
             <?php
-		foreach ($pacientes as $pac){
+	      foreach ($pacientes as $pac){
+		if ($pac['estado'] == 'Inactivo') {
+		  continue;
+		}
 		    ?>
 		    <tr>
 			<td><?=$pac['pac_id']?></td>

@@ -55,8 +55,11 @@
 	  $obj -> setPacTelefono($_POST['pac_telefono']);
 	  $obj -> setGenId($_POST['gen_id']);
 	  $obj -> setEstrId($_POST['estr_id']);
-
-	  $ejecutar = $obj -> insert('pacientes', array('pac_id', 'pac_nombre', 'pac_apellido', 'pac_direccion', 'pac_telefono', 'gen_id', 'estr_id',), array($obj -> getPacId(), $obj -> getPacNombre(), $obj -> getPacApellido(), $obj -> getPacDireccion(), $obj -> getPacTelefono(), $obj -> getGenId(), $obj -> getEstrId()));
+	  
+	  $comprob = "SELECT * FROM pacientes where pac_id=".$obj -> getPacId();
+	  $comp = $obj -> sentencia($comprob);
+	  if (mysqli_num_rows($comp) == 0) {
+	    $ejecutar = $obj -> insert('pacientes', array('pac_id', 'pac_nombre', 'pac_apellido', 'pac_direccion', 'pac_telefono', 'gen_id', 'estr_id', 'estado'), array($obj -> getPacId(), $obj -> getPacNombre(), $obj -> getPacApellido(), $obj -> getPacDireccion(), $obj -> getPacTelefono(), $obj -> getGenId(), $obj -> getEstrId(),'Activo'));
 	  if ($ejecutar) {
 	    $hobbies = (isset($_POST['hobbies'])) ? $_POST['hobbies'] : array();
 	    
@@ -67,6 +70,21 @@
 	    redirect(getUrl('Pacientes', 'Pacientes', 'getInsert'));
 	  }
 
+	  } else {
+	    $ejecutar = $obj -> update('pacientes', array('pac_nombre', 'pac_apellido', 'pac_direccion', 'pac_telefono', 'gen_id', 'estr_id', 'estado'),
+	      array($obj -> getPacNombre(), $obj -> getPacApellido(), $obj -> getPacDireccion(), $obj -> getPacTelefono(), $obj -> getGenId(), $obj -> getEstrId(), 'activo'), 'pac_id', $obj -> getPacId());
+	    if ($ejecutar) {
+	      $hobbies = (isset($_POST['hobbies'])) ? $_POST['hobbies'] : array();
+	    
+	      foreach ($hobbies as $hob) {
+		$ejecutar2 = $obj -> insert('pacientes_hobbies', array('pac_id', 'hob_id'), array($obj -> getPacId(), $hob));
+	      }
+	      echo "<script>alert('El paciente fue agregado con exito')</script>";
+	      redirect(getUrl('Pacientes', 'Pacientes', 'getInsert'));
+	  }
+
+	  }
+	  
      }
         function consult(){
         $obj = new PacientesModel();
@@ -122,7 +140,7 @@
 
 	      $ejecutar = $obj -> delete('pacientes_hobbies', 'pac_id', $obj -> getPacId());
 	      if ($ejecutar) {
-		$ejecutar = $obj -> delete('pacientes', 'pac_id', $obj -> getPacId());
+		$ejecutar = $obj -> update('pacientes', array('estado'), array('Inactivo'), 'pac_id', $obj -> getPacId());
 		echo "<script>alert('El paciente se elimino con exito');</script>";
 		redirect(getUrl('Pacientes', 'Pacientes', 'consult'));
 	      }
