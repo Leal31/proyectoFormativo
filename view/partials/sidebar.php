@@ -23,7 +23,7 @@
         </button>
         <div class="collapse" id="historia-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="<?=getUrl('Historia','Historia','consult')?>" class="link-dark rounded">Consultar</a></li>
+            <li><a href="<?=getUrl('Historias','Historias','consult')?>" class="link-dark rounded">Consultar</a></li>
           </ul>
         </div>
       </li>
