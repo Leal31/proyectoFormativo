@@ -25,6 +25,7 @@ if (isset($_GET['modulo'])) {
   $controlador = $_GET['controlador'];
   $funcion = $_GET['funcion'];
   getUrl($modulo, $controlador, $funcion);
+
   resolve();
 }
 ?>
