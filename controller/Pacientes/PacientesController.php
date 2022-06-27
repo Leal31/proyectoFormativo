@@ -99,6 +99,8 @@
 		$pacientes=$obj->sentencia($sql);
 		$sql="SELECT h.hob_nombre FROM pacientes_hobbies as ph, hobbies as h WHERE ph.pac_id=$pac_id and ph.hob_id=h.hob_id";
 		$hobbies=$obj->sentencia($sql);
+		$sql="SELECT max(hist_id), rec_id, pac_id, rec_fecha, rec_observacion, hist_id from recetario where pac_id=$pac_id";
+		$recetario=$obj->sentencia($sql);
 		include_once '../view/Pacientes/detalle.php';
 	    }
         function update(){

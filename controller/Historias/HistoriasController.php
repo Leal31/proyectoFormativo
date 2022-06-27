@@ -25,11 +25,17 @@ class HistoriasController {
         $hist_diaoi = $_POST['hist_diaoi'];
         $hist_recom = $_POST['hist_recom'];
         $pac_id = $_POST['pac_id'];
+        $rec_fecha=$_POST['rec_fecha'];
+        $rec_observacion=$_POST['rec_observacion'];
+        $rec_id=$obj->autoincrement("rec_id","recetario");
 
         $hist_id = $obj -> autoincrement("hist_id","historias");
         
         $ejecutar = $obj -> insert('historias', array('hist_id', 'hist_motv', 'hist_esfod', 'hist_cilod', 'hist_ejeod', 'hist_esfoi', 'hist_ciloi', 'hist_ejeoi', 'hist_diaod', 'hist_diaoi', 'hist_recom', 'pac_id'), 
         array($hist_id, $hist_motv, $hist_esfod, $hist_cilod, $hist_ejeod, $hist_esfoi, $hist_ciloi, $hist_ejeoi, $hist_diaod, $hist_diaoi, $hist_recom, $pac_id));
+        if($_POST['rec_observacion']!=NULL){
+            $var=$obj->insert('recetario',array('rec_id','hist_id','pac_id','rec_fecha','rec_observacion'), array($rec_id,$hist_id,$pac_id,$rec_fecha,$rec_observacion));
+        }
 	if ($ejecutar) {
 	    echo "<script>alert('La historia fue creada satisfactoriamente');</script>";
             redirect(getUrl("Pacientes", "Pacientes", "consult"));
@@ -82,9 +88,6 @@ class HistoriasController {
             $hist_recom= $row3 ['hist_recom'];
             include_once '../view/Historias/detalle.php';
         }
-       
     }
-
 }
-
 ?>

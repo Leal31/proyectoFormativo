@@ -88,9 +88,13 @@
 
             <div class="col-md-4">
                 <label class="form-label">Recomendaciones</label>
-                <input type="text" name="hist_recom" class="form-control" placeholder="Escribir recomendaciones" required="required">
+                <textarea name="hist_recom" class="form-control" id="floatingTextarea2" required style="height: 100px"></textarea>
             </div>
-            
+            <div class="col-md-4">
+                <label class="form-label">Recetario</label>
+                <input type="hidden" name="rec_fecha" value="<?=date('Y-m-d')?>">
+                <textarea name="rec_observacion" class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
+            </div>
         </div>
         <div class="row">
         <div class="col-md-4 mt-4">

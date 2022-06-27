@@ -39,7 +39,34 @@
 				    }
 				?>
 			    </tr>
-
+				<?php
+					foreach($recetario as $rec){
+					if($rec['rec_id']!=NULL){
+						?>
+						<tr>
+							<th colspan="6"><center>Recetario</center></th>
+									<tr>
+										<th>Id Recetario:</th>
+										<td colspan="2"><?=$rec['rec_id']?></td>
+										<th>Id Historia:</th>
+										<td colspan="2"><?=$rec['hist_id']?></td>
+									</tr>
+									<tr>
+										<th>Fecha Recetario:</th>
+										<td colspan="6"><?=$rec['rec_fecha']?></td>
+									</tr>
+									<tr>
+										<th colspan="6">Recetario</th>
+									</tr>
+									<tr>
+										<td colspan="6"><?=$rec['rec_observacion']?></td>
+									</tr>
+						</tr>
+						<?php
+					}
+					}
+				?>
+				
 			</tbody>
 		    </table>
 		    <?php
