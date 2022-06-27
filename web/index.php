@@ -5,8 +5,14 @@ include_once '../view/partials/headers.php';
 #include_once '../view/partials/navbar.php';
 
 if (isset($_SESSION['ingresoDocumento'])) {
-  include_once '../view/partials/navbar.php';
-  include_once '../view/partials/sidebar.php';
+  if ($_SESSION['rol_id'] == '1') {
+    include_once '../view/partials/navbar.php';
+    include_once '../view/partials/sidebar.php';
+  
+  } else {
+    include_once '../view/partials/navbarOp.php';
+    include_once '../view/partials/sidebarOp.php';
+  }
   } else {
   include '../view/Usuarios/iniSesion.php';
   }
@@ -19,6 +25,7 @@ if (isset($_GET['modulo'])) {
   $controlador = $_GET['controlador'];
   $funcion = $_GET['funcion'];
   getUrl($modulo, $controlador, $funcion);
+
   resolve();
 }
 ?>

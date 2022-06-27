@@ -3,6 +3,7 @@ include_once '../model/Usuarios/UsuariosModel.php';
 // controlador
 class UsuariosController {
   public function getInsert() {
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
     $obj = new UsuariosModel();
     
     $sql = "SELECT * FROM roles";
@@ -10,6 +11,8 @@ class UsuariosController {
     $roles = $obj -> sentencia($sql);
 
     include_once '../view/Usuarios/insert.php';
+
+    }
   }
 
   public function postInsert() {
@@ -36,6 +39,7 @@ class UsuariosController {
   }
 
   public function consult() {
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
     $obj = new UsuariosModel();
     $sql="SELECT * FROM roles";
     $roles=$obj->sentencia($sql);
@@ -65,9 +69,13 @@ class UsuariosController {
     }
     $usuarios = $obj -> sentencia($sql);
     include_once '../view/Usuarios/consult.php';
-  }
+    } else {
+      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
+    }
+      }
 
   public function getUpdate() {
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
     $obj = new UsuariosModel();
     $obj -> setUsuId($_GET['usu_id']);
     $sql = "SELECT * FROM usuarios WHERE usu_id=".$obj -> getUsuId();
@@ -75,7 +83,10 @@ class UsuariosController {
     $usuario = $obj -> sentencia($sql);
     $roles = $obj -> sentencia($sql2);
     include_once '../view/Usuarios/update.php';
-  }
+    } else {
+      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
+    }
+      }
 
   public function postUpdate() {
     $obj = new UsuariosModel();
@@ -100,6 +111,7 @@ class UsuariosController {
   }
 
   public function getDelete() {
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id']) {
     $obj = new UsuariosModel();
     $obj -> setUsuId($_GET['usu_id']);
     $sql = "SELECT * FROM usuarios WHERE usu_id=".$obj -> getUsuId();
@@ -109,7 +121,11 @@ class UsuariosController {
     $roles = $obj -> sentencia($sql2);
 
     include_once '../view/Usuarios/delete.php';
-  }
+
+    } else {
+      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
+    }
+      }
 
   public function postDelete() {
     $obj = new UsuariosModel();

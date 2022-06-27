@@ -2,41 +2,55 @@
 include_once '../model/Generos/GenerosModel.php';
 
 class generosController{
-    function getInsert(){
+  function getInsert(){
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
+
         include_once '../view/Generos/insert.php';
+    } else {
+      echo "No ha iniciado sesion o no tiene los permisos para esta funcion";
+    }
     }
 
-    function getUpdate(){
-        $obj = new GenerosModel();
+  function getUpdate(){
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1')  {
+       $obj = new GenerosModel();
         $gen_id = $_GET['gen_id'];
         $sql="SELECT * FROM generos WHERE gen_id=$gen_id";
         $generos = $obj -> sentencia($sql);
         include_once '../view/Generos/update.php';
+    } else {
+      echo "No ha iniciado sesion o no tiene los permisos para esta funcion";
     }
-    function getDelete(){
-        $obj =new GenerosModel();
+           }
+  function getDelete(){
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
+	$obj =new GenerosModel();
         $gen_id =$_GET['gen_id'];
         $sql="SELECT * FROM generos WHERE gen_id=$gen_id";
         $generos = $obj -> sentencia($sql);
         include_once '../view/Generos/delete.php';
     }
+           }
     function insert(){
         $obj = new GenerosModel();
         $gen_id = $obj -> autoincrement("gen_id","generos");
 	$gen_nombre=$_POST['gen_nombre'];
 	$consulta = $obj -> insert("generos", array('gen_id', 'gen_nombre'), array($gen_id, $gen_nombre));
-        if ($consulta) {
+	if ($consulta) {
+	    echo "<script>alert('El genero fue añadido con exito')</script>";
             redirect(getUrl("Generos","Generos","getInsert"));
         }else {
             echo "Verificar el proceso insert";
         }
     }
-        function consult(){
-            $obj = new GenerosModel();
+    function consult(){ 
+      if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
+	    $obj = new GenerosModel();
             $sql="SELECT * FROM generos";
             $generos = $obj->sentencia($sql);
             include_once '../view/Generos/consult.php';
-    }
+      }
+                }
         function update(){
             $obj = new GenerosModel();
             $gen_id = $_POST['gen_id'];
@@ -44,7 +58,8 @@ class generosController{
 
 	    $consulta = $obj -> update("generos", array('gen_nombre'), array($gen_nombre), 'gen_id', $gen_id);
 
-            if ($consulta){
+	    if ($consulta){
+		echo "<script>alert('El genero fue actualizado con exito')</script>";
                 redirect(getUrl("Generos","Generos","consult"));
                 }else {
                     echo "Verificar el proceso update";
@@ -56,7 +71,8 @@ class generosController{
 	    $gen_id = $_POST['gen_id'];
 	    $consulta = $obj -> delete('generos', 'gen_id', $gen_id);
                 
-            if ($consulta) {
+	    if ($consulta) {
+		echo "<script>alert('El genero fue eliminado con exito')</script>";
                 redirect(getUrl("Generos","Generos","consult"));
             }else {
                 echo "Verificar el proceso de delete";

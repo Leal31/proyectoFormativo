@@ -2,32 +2,49 @@
 include_once '../model/Rol/RolModel.php';
 class RolController{
     
-	function getDelete(){
-		$obj= new RolModel();
-		$rol_id=$_GET['rol_id'];
-		$sql= "SELECT * FROM roles WHERE rol_id= $rol_id";
-		$roles= $obj->sentencia($sql);
-		include_once '../view/Rol/delete.php';
-	}
-	function getInsert(){
-		include_once '../view/Rol/insert.php';
-	}
-	function getUpdate(){
-	    $obj=new RolModel();
-	    $rol_id=$_GET['rol_id'];
-	    $sql="SELECT * FROM roles WHERE rol_id=$rol_id";
-	    $roles=$obj->sentencia($sql);
-	    include_once '../view/Rol/update.php';
-	}
+  function getDelete(){
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
+	$obj= new RolModel();
+	$rol_id=$_GET['rol_id'];
+	$sql= "SELECT * FROM roles WHERE rol_id= $rol_id";
+	$roles= $obj->sentencia($sql);
+	include_once '../view/Rol/delete.php';
+	 
+    } else {
+      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
+    }
+  }
+  function getInsert(){
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
+      include_once '../view/Rol/insert.php';
+    } else {
+      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
+    }
+  }
+  function getUpdate(){
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
+	$obj=new RolModel();
+	$rol_id=$_GET['rol_id'];
+	$sql="SELECT * FROM roles WHERE rol_id=$rol_id";
+	$roles=$obj->sentencia($sql);
+	include_once '../view/Rol/update.php';
+    } else {
+      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
+    }
+    }
     	
-	function consult(){
-        $obj=new RolModel();
-	    $sql="SELECT * FROM roles";
-	    $roles=$obj->sentencia($sql);
-	    include_once '../view/Rol/consult.php';
-    	}
+  function consult(){
+    if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
+      $obj=new RolModel();
+      $sql="SELECT * FROM roles";
+      $roles=$obj->sentencia($sql);
+      include_once '../view/Rol/consult.php';
+    } else {
+      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
+    }
+  }
 	
-	function insert(){
+  function insert(){
 	$obj= new RolModel();
 	$id_rol= $obj->autoincrement('rol_id', 'roles');
 	$rol_nombre=$_POST['rol_nombre'];

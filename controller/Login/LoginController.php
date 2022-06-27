@@ -23,6 +23,7 @@ function validar() {
 	  $_SESSION['ingresoDocumento'] = $obj -> getUsuDocum();
 	  $_SESSION['usu_nombre'] = $obj -> getUsuNombre();
 	  $_SESSION['rol_id'] = $obj -> getRolId();
+	  echo "<script>alert('Bienvenido ".$_SESSION['usu_nombre']."')'</script>";
 	  redirect('index.php');
 	} else {
 	  ?>
