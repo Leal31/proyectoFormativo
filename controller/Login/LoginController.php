@@ -23,7 +23,7 @@ function validar() {
 	  $_SESSION['ingresoDocumento'] = $obj -> getUsuDocum();
 	  $_SESSION['usu_nombre'] = $obj -> getUsuNombre();
 	  $_SESSION['rol_id'] = $obj -> getRolId();
-	  echo "<script>alert('Bienvenido ".$_SESSION['usu_nombre']."')'</script>";
+	  echo "<script>alert('Bienvenido ".$_SESSION['usu_nombre']."')</script>";
 	  redirect('index.php');
 	} else {
 	  ?>
@@ -48,8 +48,8 @@ function validar() {
 	header ("Cache-Control: no-cache, must-revalidate"); //no guardar en CACHE 
 
 	header ("Pragma: no-cache"); //PARANOIA, NO GUARDAR EN CACHE 
-
-        redirect("index.php");
+	
+	redirect('index.php');
     }
 
     function encryptPassword($password) {

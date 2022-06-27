@@ -27,9 +27,8 @@
             $this->link=mysqli_connect($this->server,$this->user,$this->pass,$this->database);
             if(!$this->link){
                 echo mysqli_error($this->link);
-            } else {
-                echo "Conexion Exitosa";
-            }
+            } 
+                
         }
         /* Funcion para obtener la conexion
         como valor */

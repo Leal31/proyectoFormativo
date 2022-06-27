@@ -15,6 +15,17 @@ class HistoriasController {
         }
 
     }    
+    function getUpdate(){
+        $obj = new PacientesModel();
+            $pac_id = $_GET['pac_id'];
+            $hist_id = $_GET['hist_id'];
+            $sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
+        	$pacientes=$obj -> sentencia($sql);
+            $sql1="SELECT * FROM historias WHERE hist_id=$hist_id";
+            $historias = $obj -> sentencia($sql1);
+            include '../view/Historias/update.php';
+    }
+
    function insert(){
         
         $obj = new Pacientesmodel();
@@ -104,5 +115,36 @@ class HistoriasController {
         }
         
     }
+  function update(){
+        
+        $obj = new Pacientesmodel();
+        
+        $hist_motv = $_POST['hist_motv'];
+        $hist_esfod = $_POST['hist_esfod'];
+        $hist_cilod = $_POST['hist_cilod'];
+        $hist_ejeod = $_POST['hist_ejeod'];
+        $hist_esfoi = $_POST['hist_esfoi'];
+        $hist_ciloi = $_POST['hist_ciloi'];
+        $hist_ejeoi = $_POST['hist_ejeoi'];
+        $hist_diaod = $_POST['hist_diaod'];
+        $hist_diaoi = $_POST['hist_diaoi'];
+        $hist_recom = $_POST['hist_recom'];
+        $pac_id = $_POST['pac_id'];
+        $hist_id = $_POST['hist_id'];
+
+        $sql = "SELECT * FROM historias WHERE hist_id = $hist_id";
+        $historias = $obj->sentencia($sql);
+        
+        $ejecutar = $obj -> update('historias', array('hist_id', 'hist_motv', 'hist_esfod', 'hist_cilod', 'hist_ejeod', 'hist_esfoi', 'hist_ciloi', 'hist_ejeoi', 'hist_diaod', 'hist_diaoi', 'hist_recom', 'pac_id'), 
+        array($hist_id, $hist_motv, $hist_esfod, $hist_cilod, $hist_ejeod, $hist_esfoi, $hist_ciloi, $hist_ejeoi, $hist_diaod, $hist_diaoi, $hist_recom,$pac_id),'hist_id',$hist_id);
+	    if ($ejecutar) {
+	    echo "<script>alert('Historia Actualizada satisfactoriamente');</script>";
+            redirect(getUrl("Historias", "Historias", "consult"));
+        }else {
+            echo "error al registrar";
+        }
+        
+    }
+
 }
 ?>

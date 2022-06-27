@@ -25,7 +25,7 @@
                 ?></td>
 
                 <td><a href="<?= getUrl('Historias','Historias','detalle',array('pac_id' => $idpac['pac_id'], 'hist_id'=>$idpac['hist_id']))?>"><button class="btn btn-primary"> Ver Detalles</button></a></td>
-                <td><a href="<?= getUrl('Generos','Generos','getUpdate',array('gen_id' => $gene['gen_id']))?>"><button class="btn btn-success">Editar</button></a></td>
+                <td><a href="<?= getUrl('Historias','Historias','getUpdate',array('pac_id' => $idpac['pac_id'], 'hist_id'=>$idpac['hist_id']))?>"><button class="btn btn-success">Editar</button></a></td>
                 <td><a href="<?= getUrl('Generos','Generos','getDelete',array('gen_id' => $gene['gen_id']))?>"><button class="btn btn-danger">Eliminar</button></a></td>
            
             </tr>
