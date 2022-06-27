@@ -2,7 +2,7 @@
     <h3 class="display-4">Consultar Pacientes</h3>
 </div>
 <div class="mt-5">
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>

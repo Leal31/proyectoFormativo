@@ -39,6 +39,53 @@
 				    }
 				?>
 			    </tr>
+				<tr>
+					<th colspan="6"><center>Historia Clinica</center></th>
+					<?php
+						foreach($historia as $hist){
+							?>
+								<tr>
+									<th>Id Historia</th>
+									<td><?=$hist['hist_id']?></td>
+									<th>Motivo</th>
+									<td colspan="3"><?=$hist['hist_motv']?></td>
+								</tr>
+								<tr>
+									<th colspan="2">Esfera Ojo Derecho</th>
+									<th colspan="2">Circunferencia Ojo Derecho</th>
+									<th colspan="2">Eje Ojo Derecho</th>
+								</tr>
+								<tr>
+									<td colspan="2"><?=$hist['hist_esfod']?></td>
+									<td colspan="2"><?=$hist['hist_cilod']?></td>
+									<td colspan="2"><?=$hist['hist_ejeod']?></td>
+								</tr>
+								<tr>
+									<th colspan="2">Esfera Ojo Izquierdo</th>
+									<th colspan="2">Circunferencia Ojo Izquierdo</th>
+									<th colspan="2">Eje Ojo Izquierdo</th>
+								</tr>
+								<tr>
+									<td colspan="2"><?=$hist['hist_esfoi']?></td>
+									<td colspan="2"><?=$hist['hist_ciloi']?></td>
+									<td colspan="2"><?=$hist['hist_ejeoi']?></td>
+								</tr>
+								<tr>
+									<th>Diametro Ojo Derecho</th>
+									<td colspan="2"><?=$hist['hist_diaod']?></td>
+									<th>Diametro Ojo Izquierdo</th>
+									<td colspan="2"><?=$hist['hist_diaoi']?></td>
+								</tr>
+								<tr>
+									<th colspan="6">Recomendaciones</th>
+								</tr>
+								<tr>
+									<td colspan="6"><?=$hist['hist_recom']?></td>
+								</tr>
+							<?php
+						}
+					?>
+				</tr>
 				<?php
 					foreach($recetario as $rec){
 					if($rec['rec_id']!=NULL){

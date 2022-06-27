@@ -3,48 +3,60 @@
 
     class PacientesController{
 	function getInsert(){
-	    $obj = new PacientesModel();
-	    $sql = "SELECT * FROM generos";
-	    $generos = $obj -> sentencia($sql);
-	    $sql2 = "SELECT * FROM estratos";
-	    $estratos = $obj -> sentencia($sql2);
-	    $sql3 = "SELECT * FROM hobbies";
-	    $hobbies = $obj -> sentencia($sql3);
-            include_once '../view/Pacientes/insert.php';
-      
+		if(isset($_SESSION['ingresoDocumento'])){
+			$obj = new PacientesModel();
+			$sql = "SELECT * FROM generos";
+			$generos = $obj -> sentencia($sql);
+			$sql2 = "SELECT * FROM estratos";
+			$estratos = $obj -> sentencia($sql2);
+			$sql3 = "SELECT * FROM hobbies";
+			$hobbies = $obj -> sentencia($sql3);
+			include_once '../view/Pacientes/insert.php';
+		} else {
+			echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
+		}
         }
     
         function getUpdate(){
-            $obj = new PacientesModel();
-            $pac_id = $_GET['pac_id'];
-            $sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
-            $sql2="SELECT * FROM hobbies";
-	    	$sql3="SELECT * FROM estratos";
-	    	$sql4="SELECT * FROM generos";
-	    	$sql5="SELECT * FROM pacientes_hobbies WHERE pac_id=$pac_id";
-	               
-        	$pacientes=$obj -> sentencia($sql);
-        	$hobbies=$obj -> sentencia($sql2);
-        	$estratos=$obj -> sentencia($sql3);
-	    	$generos=$obj -> sentencia($sql4);
-	    	$paciente_hobbies=$obj -> sentencia($sql5);
-
-            include '../view/Pacientes/update.php';
+			if(isset($_SESSION['ingresoDocumento'])){
+				$obj = new PacientesModel();
+				$pac_id = $_GET['pac_id'];
+				$sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
+				$sql2="SELECT * FROM hobbies";
+				$sql3="SELECT * FROM estratos";
+				$sql4="SELECT * FROM generos";
+				$sql5="SELECT * FROM pacientes_hobbies WHERE pac_id=$pac_id";
+					   
+				$pacientes=$obj -> sentencia($sql);
+				$hobbies=$obj -> sentencia($sql2);
+				$estratos=$obj -> sentencia($sql3);
+				$generos=$obj -> sentencia($sql4);
+				$paciente_hobbies=$obj -> sentencia($sql5);
+	
+				include '../view/Pacientes/update.php';
+			} else {
+				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
+			}
         }
         function getDelete(){
-	    $obj =new PacientesModel();
-	    $pac_id = $_GET['pac_id'];
-	    $sql = "SELECT * FROM generos";
-	    $sql2 = "SELECT * FROM hobbies";
-	    $sql3 = "SELECT * FROM estratos";
-	    $sql4 = "SELECT * FROM pacientes WHERE pac_id=$pac_id";
-	    $sql5 = "SELECT * FROM pacientes_hobbies where pac_id=$pac_id";
-	    $generos = $obj -> sentencia($sql);
-	    $hobbies = $obj -> sentencia($sql2);
-	    $estratos = $obj -> sentencia($sql3);
-	    $paciente = $obj -> sentencia($sql4);
-	    $paciente_hobbies = $obj -> sentencia($sql5);
-            include_once '../view/Pacientes/delete.php';
+			if(isset($_SESSION['ingresoDocumento'])){
+				$obj =new PacientesModel();
+				$pac_id = $_GET['pac_id'];
+				$sql = "SELECT * FROM generos";
+				$sql2 = "SELECT * FROM hobbies";
+				$sql3 = "SELECT * FROM estratos";
+				$sql4 = "SELECT * FROM pacientes WHERE pac_id=$pac_id";
+				$sql5 = "SELECT * FROM pacientes_hobbies where pac_id=$pac_id";
+				$generos = $obj -> sentencia($sql);
+				$hobbies = $obj -> sentencia($sql2);
+				$estratos = $obj -> sentencia($sql3);
+				$paciente = $obj -> sentencia($sql4);
+				$paciente_hobbies = $obj -> sentencia($sql5);
+				include_once '../view/Pacientes/delete.php';
+			} else {
+				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
+			}
+
         }
         function insert() {
 	  $obj = new PacientesModel();
@@ -87,21 +99,32 @@
 	  
      }
         function consult(){
-        $obj = new PacientesModel();
-        $sql="SELECT * FROM pacientes";
-        $pacientes = $obj->sentencia($sql);
-        include_once '../view/Pacientes/consult.php';
+			if(isset($_SESSION['ingresoDocumento'])){
+				$obj = new PacientesModel();
+				$sql="SELECT * FROM pacientes";
+				$pacientes = $obj->sentencia($sql);
+				include_once '../view/Pacientes/consult.php';
+			} else {
+				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
+			}
+			
 	    }
 	    function detalle(){
-		$obj=new PacientesModel();
-		$pac_id=$_GET['pac_id'];
-		$sql="select p.pac_id, p.pac_nombre, p.pac_apellido, p.pac_telefono, p.pac_direccion, g.gen_nombre, e.estr_nombre FROM pacientes as p, generos as g, estratos as e WHERE p.pac_id=$pac_id and p.gen_id=g.gen_id and e.estr_id=p.estr_id";
-		$pacientes=$obj->sentencia($sql);
-		$sql="SELECT h.hob_nombre FROM pacientes_hobbies as ph, hobbies as h WHERE ph.pac_id=$pac_id and ph.hob_id=h.hob_id";
-		$hobbies=$obj->sentencia($sql);
-		$sql="SELECT max(hist_id), rec_id, pac_id, rec_fecha, rec_observacion, hist_id from recetario where pac_id=$pac_id";
-		$recetario=$obj->sentencia($sql);
-		include_once '../view/Pacientes/detalle.php';
+			if(isset($_SESSION['ingresoDocumento'])){
+				$obj=new PacientesModel();
+				$pac_id=$_GET['pac_id'];
+				$sql="select p.pac_id, p.pac_nombre, p.pac_apellido, p.pac_telefono, p.pac_direccion, g.gen_nombre, e.estr_nombre FROM pacientes as p, generos as g, estratos as e WHERE p.pac_id=$pac_id and p.gen_id=g.gen_id and e.estr_id=p.estr_id";
+				$pacientes=$obj->sentencia($sql);
+				$sql="SELECT h.hob_nombre FROM pacientes_hobbies as ph, hobbies as h WHERE ph.pac_id=$pac_id and ph.hob_id=h.hob_id";
+				$hobbies=$obj->sentencia($sql);
+				$sql="SELECT max(hist_id), rec_id, pac_id, rec_fecha, rec_observacion, hist_id from recetario where pac_id=$pac_id";
+				$recetario=$obj->sentencia($sql);
+				$sql="SELECT * from historias where hist_id=(SELECT max(hist_id) from historias where pac_id=$pac_id)";
+				$historia=$obj->sentencia($sql);
+				include_once '../view/Pacientes/detalle.php';
+			} else {
+				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
+			}
 	    }
         function update(){
             $obj = new PacientesModel;
