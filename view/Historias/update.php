@@ -68,52 +68,52 @@
             <div class="col-md-4">
                 <label class="form-label">Motivo</label>
                 <input type="hidden" name="hist_id" value="<?=$hist['hist_id']; ?>">
-                <input type="text" name="hist_motv" class="form-control" value="<?=$hist['hist_motv']; ?>">
+		<input type="text" name="hist_motv" class="form-control" value="<?=$hist['hist_motv']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Esfera Ojo Derecho</label>
-                <input type="number" name="hist_esfod" class="form-control" value="<?=$hist['hist_esfod']; ?>">
+                <input type="number" name="hist_esfod" class="form-control" value="<?=$hist['hist_esfod']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Circunferencia Ojo Derecho</label>
-                <input type="number" name="hist_cilod" class="form-control" value="<?=$hist['hist_cilod']; ?>">
+                <input type="number" name="hist_cilod" class="form-control" value="<?=$hist['hist_cilod']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Eje Ojo Derecho</label>
-                <input type="number" name="hist_ejeod" class="form-control" value="<?=$hist['hist_ejeod']; ?>">
+                <input type="number" name="hist_ejeod" class="form-control" value="<?=$hist['hist_ejeod']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Esfera Ojo Izquierdo</label>
-                <input type="number" name="hist_esfoi" class="form-control" value="<?=$hist['hist_esfoi']; ?>">
+                <input type="number" name="hist_esfoi" class="form-control" value="<?=$hist['hist_esfoi']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Circunferencia Ojo Izquierdo</label>
-                <input type="number" name="hist_ciloi" class="form-control" value="<?=$hist['hist_ciloi']; ?>">
+                <input type="number" name="hist_ciloi" class="form-control" value="<?=$hist['hist_ciloi']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Eje Ojo Izquierdo</label>
-                <input type="number" name="hist_ejeoi" class="form-control" value="<?=$hist['hist_ejeoi']; ?>">
+                <input type="number" name="hist_ejeoi" class="form-control" value="<?=$hist['hist_ejeoi']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Diametro Ojo Derecho</label>
-                <input type="number" name="hist_diaod" class="form-control" value="<?=$hist['hist_diaod']; ?>">
+                <input type="number" name="hist_diaod" class="form-control" value="<?=$hist['hist_diaod']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Diametro Ojo Izquierdo</label>
-                <input type="number" name="hist_diaoi" class="form-control" value="<?=$hist['hist_diaoi']; ?>">
+                <input type="number" name="hist_diaoi" class="form-control" value="<?=$hist['hist_diaoi']; ?>" required>
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Recomendaciones</label>
-                <input type="text" name="hist_recom" class="form-control" value="<?=$hist['hist_recom']; ?>">
+                <input type="text" name="hist_recom" class="form-control" value="<?=$hist['hist_recom']; ?>" required>
             </div>
             
             

@@ -24,7 +24,7 @@
 	    </div>
 	    <div class="col-md-4">
                 <label>Telefono Paciente: </label>
-                <input required type="text" name="pac_telefono" class="form-control" placeholder="Telefono de paciente">
+                <input required type="number" name="pac_telefono" class="form-control" placeholder="Telefono de paciente">
 	    </div>
 	    <div class="col-md-4">
 	      <label>Hobbies: </label><br>

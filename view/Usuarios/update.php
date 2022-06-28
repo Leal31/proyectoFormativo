@@ -11,19 +11,19 @@
             <div class="col-md-4">
                 <label>Documento</label>
 		<input type="hidden" name="usu_id" value="<?=$usu['usu_id']?>">
-		<input type="text" name="usu_docum" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_docum']?>">
+		<input type="text" name="usu_docum" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_docum']?>" required>
 	    </div>
 	    <div class="col-md-4">
                 <label>Nombre</label>
-		<input type="text" name="usu_nombre" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_nombre']?>">
+		<input type="text" name="usu_nombre" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_nombre']?>" required>
             </div>
 	    <div class="col-md-4">
                 <label>Clave</label>
-		<input type="password" name="usu_clave" class="form-control" placeholder="Nombre del Estrato" value="<?=  $clave ?>">
+		<input type="password" name="usu_clave" class="form-control" placeholder="Nombre del Estrato" value="<?=  $clave ?>" required>
 	    </div>
 	    <div class="col-md-4">
 		<label>Rol</label>
-		<select class="form-control" name="rol_id">
+		<select class="form-control" name="rol_id" required>
 <?php
 	  foreach ($roles as $rol) {
 	    if ($usu['rol_id'] == $rol['rol_id']) {

@@ -46,7 +46,7 @@
 	    }
 	}
 	function consult(){
-	  if (isset($_SESSION['ingresoDocumento']) and $_SESSION('rol_id') == '1') {
+	  if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
 	    $obj=new EstratosModel();
 	    if(isset($_POST['filtro'])){
 		if($_POST['filtro']!=NULL){

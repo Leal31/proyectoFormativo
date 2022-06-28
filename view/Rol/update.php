@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <label>Nombre</label>
 		<input type="hidden" name="rol_id" value="<?=$rol['rol_id']?>">
-                <input type="text" name="rol_nombre" class="form-control" placeholder="Nombre del rol" value="<?=$rol['rol_nombre']?>">
+                <input type="text" name="rol_nombre" class="form-control" placeholder="Nombre del rol" value="<?=$rol['rol_nombre']?>" required>
             </div>
             <div class="col-md-4 mt-4">
                 <input type="submit" value="Enviar" class="btn btn-success mt-2">

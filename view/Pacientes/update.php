@@ -15,19 +15,19 @@
 	    </div>
 	    <div class="col-md-4">
                 <label>Nombre</label>
-		<input type="text" name="pac_nombre" class="form-control" placeholder="Nombre del Paciente" value="<?=$pac['pac_nombre']?>">
+		<input type="text" name="pac_nombre" class="form-control" placeholder="Nombre del Paciente" value="<?=$pac['pac_nombre']?>" required>
         </div>
 		<div class="col-md-4">
                 <label>Apellido</label>
-		<input type="text" name="pac_apellido" class="form-control" placeholder="Apellido del Paciente" value="<?=$pac['pac_apellido']?>">
+		<input type="text" name="pac_apellido" class="form-control" placeholder="Apellido del Paciente" value="<?=$pac['pac_apellido']?>" required>
         </div>
 		<div class="col-md-4">
                 <label>Direccion Paciente</label>
-		<input type="text" name="pac_direccion" class="form-control" placeholder="Direccion del Paciente" value="<?=$pac['pac_direccion']?>">
+		<input type="text" name="pac_direccion" class="form-control" placeholder="Direccion del Paciente" value="<?=$pac['pac_direccion']?>" required>
         </div>
 		<div class="col-md-4">
                 <label>Telefono</label>
-		<input type="number" name="pac_tel" class="form-control" placeholder="Telefono del Paciente" value="<?=$pac['pac_telefono']?>">
+		<input type="number" name="pac_tel" class="form-control" placeholder="Telefono del Paciente" value="<?=$pac['pac_telefono']?>" required>
         </div>
 
         </div>
@@ -68,7 +68,7 @@
 	      	</div>	
 		<div class="col-4">
 		<label for="ingresoGenero" class="form-label">Genero: </label>
-		<select class="form-select" aria-label="-------" name="gen_id">
+		<select class="form-select" aria-label="-------" name="gen_id" required>
 		    <option >---------------</option>
 <?php
 		  foreach($generos as $gen) {
@@ -95,7 +95,7 @@
 			    $checked = "";
 			  }
 ?>
-  <input type="radio" name="estr_id" value="<?=$estr['estr_id']?>" <?=$checked?>>
+  <input type="radio" name="estr_id" value="<?=$estr['estr_id']?>" <?=$checked?> required>
   <label><?=$estr['estr_nombre']?></label><br>
 <?php
 			}
