@@ -6,8 +6,6 @@ class generosController{
     if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
 
         include_once '../view/Generos/insert.php';
-    } else {
-      echo "No ha iniciado sesion o no tiene los permisos para esta funcion";
     }
     }
 
@@ -18,8 +16,6 @@ class generosController{
         $sql="SELECT * FROM generos WHERE gen_id=$gen_id";
         $generos = $obj -> sentencia($sql);
         include_once '../view/Generos/update.php';
-    } else {
-      echo "No ha iniciado sesion o no tiene los permisos para esta funcion";
     }
            }
   function getDelete(){

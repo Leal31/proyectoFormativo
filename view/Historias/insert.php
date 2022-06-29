@@ -57,42 +57,42 @@ foreach ($pacientes as $pac){
 
             <div class="col-md-4">
                 <label class="form-label">Esfera Ojo Derecho</label>
-                <input type="number" name="hist_esfod" class="form-control" required="required">
+                <input type="number" name="hist_esfod" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Circunferencia Ojo Derecho</label>
-                <input type="number" name="hist_cilod" class="form-control" required="required">
+                <input type="number" name="hist_cilod" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Eje Ojo Derecho</label>
-                <input type="number" name="hist_ejeod" class="form-control" required="required">
+                <input type="number" name="hist_ejeod" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Esfera Ojo Izquierdo</label>
-                <input type="number" name="hist_esfoi" class="form-control" required="required">
+                <input type="number" name="hist_esfoi" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Circunferencia Ojo Izquierdo</label>
-                <input type="number" name="hist_ciloi" class="form-control" required="required">
+                <input type="number" name="hist_ciloi" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Eje Ojo Izquierdo</label>
-                <input type="number" name="hist_ejeoi" class="form-control" required="required">
+                <input type="number" name="hist_ejeoi" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Diametro Ojo Derecho</label>
-                <input type="number" name="hist_diaod" class="form-control" required="required">
+                <input type="number" name="hist_diaod" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">
                 <label class="form-label">Diametro Ojo Izquierdo</label>
-                <input type="number" name="hist_diaoi" class="form-control" required="required">
+                <input type="number" name="hist_diaoi" class="form-control" required="required" maxlength="50">
             </div>
 
             <div class="col-md-4">

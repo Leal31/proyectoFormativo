@@ -10,9 +10,7 @@ class HistoriasController {
             $sql1 ="SELECT * FROM pacientes where pac_id=$pac_id";
             $pacientes = $obj->sentencia($sql1);
             include_once '../view/Historias/insert.php';
-        } else {
-            echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-        }
+        } 
 
     }    
     function getUpdate(){
@@ -66,9 +64,7 @@ class HistoriasController {
             $sql = "SELECT * FROM historias ORDER BY pac_id DESC";
             $id = $obj->sentencia($sql);
             include_once '../view/Historias/consult.php';
-        } else {
-            echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-        }
+        } 
 
     }
   
@@ -110,10 +106,7 @@ class HistoriasController {
                 $hist_recom= $row3 ['hist_recom'];
                 include_once '../view/Historias/detalle.php';
         }
-        } else {
-            echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
         }
-        
     }
   function update(){
         

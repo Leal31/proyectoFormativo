@@ -11,15 +11,15 @@
             <div class="col-md-4">
                 <label>Documento</label>
 		<input type="hidden" name="usu_id" value="<?=$usu['usu_id']?>">
-		<input type="text" name="usu_docum" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_docum']?>" required>
+		<input type="text" name="usu_docum" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_docum']?>" required maxlength="11">
 	    </div>
 	    <div class="col-md-4">
                 <label>Nombre</label>
-		<input type="text" name="usu_nombre" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_nombre']?>" required>
+		<input type="text" name="usu_nombre" class="form-control" placeholder="Nombre del Estrato" value="<?=$usu['usu_nombre']?>" required maxlength="70">
             </div>
 	    <div class="col-md-4">
                 <label>Clave</label>
-		<input type="password" name="usu_clave" class="form-control" placeholder="Nombre del Estrato" value="<?=  $clave ?>" required>
+		<input type="password" name="usu_clave" class="form-control" placeholder="Nombre del Estrato" value="<?=  $clave ?>" required maxlength="20">
 	    </div>
 	    <div class="col-md-4">
 		<label>Rol</label>

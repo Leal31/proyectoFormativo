@@ -4,9 +4,7 @@
       function getInsert(){
 	if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
 	  include_once '../view/Estratos/insert.php' ;
-	} else {
-	  echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-	}
+	} 
 	}
 	function getUpdate(){
 	  if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
@@ -15,10 +13,8 @@
 	    $sql="SELECT * FROM estratos WHERE estr_id=".$obj->getEstrId();
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/update.php';
-	  } else {
-	    echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-	  }
-	    	  }
+	  } 
+	}
 	    	
 	function getDelete(){
 	  if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
@@ -28,9 +24,7 @@
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/delete.php';
 
-	  } else {
-	    echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-	  }
+	  } 
 	    	}
 	function insert(){
 	    $obj=new EstratosModel();
@@ -60,8 +54,6 @@
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/consult.php';
 
-	  } else {
-	    echo "No ha iniciado sesion o no tiene acceso a esta funcion";
 	  }
 	    	}
 	function update(){

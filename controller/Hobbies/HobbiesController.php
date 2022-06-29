@@ -5,8 +5,6 @@
       function getInsert(){
 	if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
 	  include_once '../view/Hobbies/insert.php';
-	} else {
-	  echo "No ha iniciado sesion o no tiene acceso a esta funcion";
 	}
         }
     
@@ -17,8 +15,6 @@
             $sql="SELECT * FROM hobbies WHERE hob_id=$hob_id";
             $hobbies = $obj -> sentencia($sql);
             include_once '../view/Hobbies/update.php';
-	} else {
-	  echo "No ha iniciado sesion o no tiene acceso a esta funcion";
 	}
       }
 
@@ -30,8 +26,6 @@
             $sql="SELECT * FROM hobbies WHERE hob_id=$hob_id";
             $hobbies = $obj -> sentencia($sql);
             include_once '../view/Hobbies/delete.php';
-	} else {
-	  echo "No ha iniciado sesion o no tiene acceso a esta funcion";
 	}
       }
         function insert() {
@@ -52,9 +46,7 @@
             $sql="SELECT * FROM hobbies";
             $hobbies = $obj->sentencia($sql);
             include_once '../view/Hobbies/consult.php';
-	} else {
-	  echo "No ha iniciado sesion o no tiene acceso a esta funcion";
-	}
+	} 
       }
       function update(){
           $obj = new HobbiesModel();

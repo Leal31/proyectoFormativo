@@ -15,19 +15,19 @@
 	    </div>
 	    <div class="col-md-4">
                 <label>Nombre</label>
-		<input type="text" name="pac_nombre" class="form-control" placeholder="Nombre del Paciente" value="<?=$pac['pac_nombre']?>" required>
+		<input type="text" name="pac_nombre" class="form-control" placeholder="Nombre del Paciente" value="<?=$pac['pac_nombre']?>" required maxlength="50">
         </div>
 		<div class="col-md-4">
                 <label>Apellido</label>
-		<input type="text" name="pac_apellido" class="form-control" placeholder="Apellido del Paciente" value="<?=$pac['pac_apellido']?>" required>
+		<input type="text" name="pac_apellido" class="form-control" placeholder="Apellido del Paciente" value="<?=$pac['pac_apellido']?>" required maxlength="50">
         </div>
 		<div class="col-md-4">
                 <label>Direccion Paciente</label>
-		<input type="text" name="pac_direccion" class="form-control" placeholder="Direccion del Paciente" value="<?=$pac['pac_direccion']?>" required>
+		<input type="text" name="pac_direccion" class="form-control" placeholder="Direccion del Paciente" value="<?=$pac['pac_direccion']?>" required maxlength="70">
         </div>
 		<div class="col-md-4">
                 <label>Telefono</label>
-		<input type="number" name="pac_tel" class="form-control" placeholder="Telefono del Paciente" value="<?=$pac['pac_telefono']?>" required>
+		<input type="number" name="pac_tel" class="form-control" placeholder="Telefono del Paciente" value="<?=$pac['pac_telefono']?>" required maxlength="20">
         </div>
 
         </div>

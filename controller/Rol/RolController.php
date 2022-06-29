@@ -10,15 +10,11 @@ class RolController{
 	$roles= $obj->sentencia($sql);
 	include_once '../view/Rol/delete.php';
 	 
-    } else {
-      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
-    }
+    } 
   }
   function getInsert(){
     if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
       include_once '../view/Rol/insert.php';
-    } else {
-      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
     }
   }
   function getUpdate(){
@@ -28,9 +24,7 @@ class RolController{
 	$sql="SELECT * FROM roles WHERE rol_id=$rol_id";
 	$roles=$obj->sentencia($sql);
 	include_once '../view/Rol/update.php';
-    } else {
-      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
-    }
+    } 
     }
     	
   function consult(){
@@ -39,8 +33,6 @@ class RolController{
       $sql="SELECT * FROM roles";
       $roles=$obj->sentencia($sql);
       include_once '../view/Rol/consult.php';
-    } else {
-      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
     }
   }
 	

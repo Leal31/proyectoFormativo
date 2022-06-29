@@ -12,9 +12,7 @@
 			$sql3 = "SELECT * FROM hobbies";
 			$hobbies = $obj -> sentencia($sql3);
 			include_once '../view/Pacientes/insert.php';
-		} else {
-			echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-		}
+		} 
         }
     
         function getUpdate(){
@@ -34,9 +32,7 @@
 				$paciente_hobbies=$obj -> sentencia($sql5);
 	
 				include '../view/Pacientes/update.php';
-			} else {
-				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-			}
+			} 
         }
         function getDelete(){
 			if(isset($_SESSION['ingresoDocumento'])){
@@ -53,9 +49,7 @@
 				$paciente = $obj -> sentencia($sql4);
 				$paciente_hobbies = $obj -> sentencia($sql5);
 				include_once '../view/Pacientes/delete.php';
-			} else {
-				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
-			}
+			} 
 
         }
         function insert() {
@@ -104,8 +98,6 @@
 				$sql="SELECT * FROM pacientes";
 				$pacientes = $obj->sentencia($sql);
 				include_once '../view/Pacientes/consult.php';
-			} else {
-				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
 			}
 			
 	    }
@@ -122,8 +114,6 @@
 				$sql="SELECT * from historias where hist_id=(SELECT max(hist_id) from historias where pac_id=$pac_id)";
 				$historia=$obj->sentencia($sql);
 				include_once '../view/Pacientes/detalle.php';
-			} else {
-				echo "No ha iniciado sesion o No tiene el permiso para acceder a esta funcion";
 			}
 	    }
         function update(){

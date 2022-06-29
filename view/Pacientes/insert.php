@@ -6,25 +6,25 @@
 	<div class="row">
 	  <div class="col-md-4">
                 <label>Documento Paciente: </label>
-                <input required type="text" name="pac_id" class="form-control" placeholder="Documento de paciente">
+                <input required type="number" name="pac_id" class="form-control" placeholder="Documento de paciente" maxlength="11"> 
 	    </div>
 
             <div class="col-md-4">
                 <label>Nombre Paciente: </label>
-                <input required type="text" name="pac_nombre" class="form-control" placeholder="Nombre de paciente">
+                <input required type="text" name="pac_nombre" class="form-control" placeholder="Nombre de paciente" maxlength="50">
 	    </div>
 	    
 	    <div class="col-md-4">
                 <label>Apellido Paciente: </label>
-                <input required type="text" name="pac_apellido" class="form-control" placeholder="Apellido de paciente">
+                <input required type="text" name="pac_apellido" class="form-control" placeholder="Apellido de paciente" maxlength="50">
             </div>
 	    <div class="col-md-4">
                 <label>Dirección Paciente: </label>
-                <input required type="text" name="pac_direccion" class="form-control" placeholder="Direccion de paciente">
+                <input required type="text" name="pac_direccion" class="form-control" placeholder="Direccion de paciente" maxlength="70">
 	    </div>
 	    <div class="col-md-4">
                 <label>Telefono Paciente: </label>
-                <input required type="number" name="pac_telefono" class="form-control" placeholder="Telefono de paciente">
+                <input required type="number" name="pac_telefono" class="form-control" placeholder="Telefono de paciente" maxlength="20">
 	    </div>
 	    <div class="col-md-4">
 	      <label>Hobbies: </label><br>

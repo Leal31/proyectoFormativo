@@ -6,15 +6,15 @@
         <div class="row">
             <div class="col-md-4">
                 <label>Numero Documento: </label>
-                <input required type="number" name="usu_docum" class="form-control" placeholder="Numero de Documento">
+                <input required type="number" name="usu_docum" class="form-control" placeholder="Numero de Documento" maxlength="11">
 	    </div>
 	    <div class="col-md-4">
                 <label>Nombre: </label>
-                <input required type="text" name="usu_nombre" class="form-control" placeholder="Nombre de Usuario">
+                <input required type="text" name="usu_nombre" class="form-control" placeholder="Nombre de Usuario" maxlength="60">
             </div>
 	    <div class="col-md-4">
                 <label>Clave</label>
-                <input required type="password" name="usu_clave" class="form-control" placeholder="Clave">
+                <input required type="password" name="usu_clave" class="form-control" placeholder="Clave" maxlength="20">
 	    </div>
 	    <div class="col-md-4">
 	      <label>Rol: </label>

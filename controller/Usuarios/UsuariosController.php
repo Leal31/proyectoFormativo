@@ -69,9 +69,7 @@ class UsuariosController {
     }
     $usuarios = $obj -> sentencia($sql);
     include_once '../view/Usuarios/consult.php';
-    } else {
-      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
-    }
+    } 
       }
 
   public function getUpdate() {
@@ -83,9 +81,7 @@ class UsuariosController {
     $usuario = $obj -> sentencia($sql);
     $roles = $obj -> sentencia($sql2);
     include_once '../view/Usuarios/update.php';
-    } else {
-      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
-    }
+    } 
       }
 
   public function postUpdate() {
@@ -122,9 +118,7 @@ class UsuariosController {
 
     include_once '../view/Usuarios/delete.php';
 
-    } else {
-      echo "No ha iniciado sesion o no tiene acceso a esta funcion";
-    }
+    } 
       }
 
   public function postDelete() {

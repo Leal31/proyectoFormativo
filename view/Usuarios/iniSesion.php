@@ -1,9 +1,9 @@
 <div class="wrapper">
 <form class="login" action="<?=getUrl("Login", "Login", "validar")?>" method="post">
     <p class="title">Inicio de sesion</p>
-    <input type="number" placeholder="Documento Usuario" name="usu_docum" autofocus/>
+    <input type="number" placeholder="Documento Usuario" name="usu_docum" autofocus required/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="Contraseña" name="usu_clave"/>
+    <input type="password" placeholder="Contraseña" name="usu_clave" required/>
     <i class="fa fa-key"></i>
     <select class="form-select form-select-lg mb-3" name="rol_id" required>
       <option value="" selected>Por favor, seleccione un rol</option>
