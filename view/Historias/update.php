@@ -2,7 +2,10 @@
     <h3 class="display-4 ">Editar Historia de Paciente</h3>
 </div>
 <?php
-    foreach ($pacientes as $pac){
+foreach ($pacientes as $pac){
+$sql2 = "SELECT g.gen_nombre FROM generos as g, pacientes as p WHERE g.gen_id=p.gen_id AND p.pac_id=".$pac['pac_id'];
+
+$genero = $obj -> sentencia($sql2); 
 ?>
 <div class="mt-5">
     
@@ -53,7 +56,13 @@
                 <p><?=$pac['pac_telefono']?></p>
         </div>
 		<div class="col-md-4">
-                <p><?=$pac['gen_id']?></p>
+<?php
+foreach ($genero as $g) {
+?>
+		<p><?=$g['gen_nombre']?></p>
+<?php
+}
+?>
         </div>
         </div>
 

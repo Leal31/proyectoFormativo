@@ -17,7 +17,7 @@ if (isset($_SESSION['ingresoDocumento'])) {
   include '../view/Usuarios/iniSesion.php';
   }
 ?>
-
+<div class="contenedor">
 <div class="container">                     
 <?php
 if (isset($_GET['modulo'])) {
@@ -29,6 +29,7 @@ if (isset($_GET['modulo'])) {
   resolve();
 }
 ?>
+</div>
 </div>
 <?php
 include_once '../view/partials/footers.php';

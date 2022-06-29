@@ -1,5 +1,5 @@
-    <div class="mt-5">
-    <h3 class="display-4">Consultar Historias</h3>
+<div class="mt-5">
+  <h3 class="display-4">Consultar Historias</h3>
 </div>
 <div class="mt-5">
     <table class="table table-hover">
@@ -41,6 +41,4 @@
         </tbody>
     </table>    
 </div>
-    <?php
 
-?>

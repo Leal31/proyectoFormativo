@@ -69,7 +69,7 @@
 		<div class="col-4">
 		<label for="ingresoGenero" class="form-label">Genero: </label>
 		<select class="form-select" aria-label="-------" name="gen_id" required>
-		    <option >---------------</option>
+		    <option value="">---------------</option>
 <?php
 		  foreach($generos as $gen) {
 		    if ($gen['gen_id'] == $pac['gen_id']) {

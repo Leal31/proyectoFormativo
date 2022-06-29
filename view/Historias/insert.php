@@ -2,7 +2,10 @@
     <h3 class="display-4 ">Historia de Paciente</h3>
 </div>
 <?php
-    foreach ($pacientes as $pac){
+foreach ($pacientes as $pac){
+  $sql2 = "SELECT g.gen_nombre FROM generos as g, pacientes as p WHERE g.gen_id=p.gen_id AND p.pac_id=".$pac['pac_id'];
+
+  $genero = $obj -> sentencia($sql2); 
 ?>
 <div class="mt-5">
     
@@ -28,8 +31,14 @@
 		<input type="number" name="pac_tel" class="form-control" value="<?=$pac['pac_telefono']?>"readonly>
         </div>
         <div class="col-md-4">
-                <label>Genero</label>
-		<input type="number" name="pac_tel" class="form-control" value="<?=$pac['gen_id']?>"readonly>
+		<label>Genero</label>
+<?php
+  foreach($genero as $g) {
+?>
+		<input type="text" name="gen_id" class="form-control" value="<?=$g['gen_nombre']?>" readonly>
+<?php
+  }
+?>
         </div>
         <?php
          }
@@ -105,7 +114,3 @@
     </form>
 
 </div>
-
-    
-		
-        

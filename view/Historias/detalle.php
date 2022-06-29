@@ -2,7 +2,7 @@
     <div class="row text-center" style="position:relative; top:50px;">
         <div class="col-12 border-bottom "><h1> Informacion De Historia</h1></div>
             <div class="col-4">
-                <div class="row" style="">
+                <div class="row">
                     <div class="col-12"><h3>Documento</h3></div>
                     <div class="col-12"><h6><?=$id?></h6></div>
                 </div>

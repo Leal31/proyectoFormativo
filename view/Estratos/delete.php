@@ -1,3 +1,4 @@
+<div class="contenedor">
 <div class="mt-5">
     <h3 class="display-4">Eliminar Estrato</h3>
 </div>
@@ -20,4 +21,5 @@
     <?php
         }
     ?>
+</div>
 </div>
