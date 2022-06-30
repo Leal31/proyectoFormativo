@@ -6,6 +6,8 @@ class generosController{
     if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
 
         include_once '../view/Generos/insert.php';
+    } else {
+      redirect('index.php');
     }
     }
 
@@ -16,6 +18,8 @@ class generosController{
         $sql="SELECT * FROM generos WHERE gen_id=$gen_id";
         $generos = $obj -> sentencia($sql);
         include_once '../view/Generos/update.php';
+    } else {
+      redirect('index.php');
     }
            }
   function getDelete(){
@@ -25,6 +29,8 @@ class generosController{
         $sql="SELECT * FROM generos WHERE gen_id=$gen_id";
         $generos = $obj -> sentencia($sql);
         include_once '../view/Generos/delete.php';
+    } else {
+      redirect('index.php');
     }
            }
     function insert(){
@@ -45,6 +51,8 @@ class generosController{
             $sql="SELECT * FROM generos";
             $generos = $obj->sentencia($sql);
             include_once '../view/Generos/consult.php';
+      } else {
+	redirect('index.php');
       }
                 }
         function update(){

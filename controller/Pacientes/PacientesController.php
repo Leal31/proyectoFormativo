@@ -12,6 +12,8 @@
 			$sql3 = "SELECT * FROM hobbies";
 			$hobbies = $obj -> sentencia($sql3);
 			include_once '../view/Pacientes/insert.php';
+		} else {
+		  redirect('index.php');
 		} 
         }
     
@@ -32,6 +34,8 @@
 				$paciente_hobbies=$obj -> sentencia($sql5);
 	
 				include '../view/Pacientes/update.php';
+			} else {
+			  redirect('index.php');
 			} 
         }
         function getDelete(){
@@ -49,6 +53,8 @@
 				$paciente = $obj -> sentencia($sql4);
 				$paciente_hobbies = $obj -> sentencia($sql5);
 				include_once '../view/Pacientes/delete.php';
+			} else {
+			  redirect('index.php');
 			} 
 
         }
@@ -98,6 +104,8 @@
 				$sql="SELECT * FROM pacientes";
 				$pacientes = $obj->sentencia($sql);
 				include_once '../view/Pacientes/consult.php';
+			} else {
+			  redirect('index.php');
 			}
 			
 	    }
@@ -114,6 +122,8 @@
 				$sql="SELECT * from historias where hist_id=(SELECT max(hist_id) from historias where pac_id=$pac_id)";
 				$historia=$obj->sentencia($sql);
 				include_once '../view/Pacientes/detalle.php';
+			} else {
+			  redirect('index.php');
 			}
 	    }
         function update(){

@@ -10,19 +10,25 @@ class HistoriasController {
             $sql1 ="SELECT * FROM pacientes where pac_id=$pac_id";
             $pacientes = $obj->sentencia($sql1);
             include_once '../view/Historias/insert.php';
-        } 
+	} else {
+	  redirect('index.php');
+	}
 
     }    
     function getUpdate(){
-        $obj = new PacientesModel();
+      if (isset($_SESSION['ingresoDocumento'])) {
+	    $obj = new PacientesModel();
             $pac_id = $_GET['pac_id'];
             $hist_id = $_GET['hist_id'];
             $sql="SELECT * FROM pacientes WHERE pac_id=$pac_id";
-        	$pacientes=$obj -> sentencia($sql);
+            $pacientes=$obj -> sentencia($sql);
             $sql1="SELECT * FROM historias WHERE hist_id=$hist_id";
             $historias = $obj -> sentencia($sql1);
             include '../view/Historias/update.php';
-    }
+      } else {
+	redirect('index.php');
+      }
+            }
 
    function insert(){
         
@@ -64,7 +70,9 @@ class HistoriasController {
             $sql = "SELECT * FROM historias ORDER BY pac_id DESC";
             $id = $obj->sentencia($sql);
             include_once '../view/Historias/consult.php';
-        } 
+	} else {
+	  redirect('index.php');
+	}
 
     }
   
@@ -105,7 +113,10 @@ class HistoriasController {
                 $hist_diaod= $row3 ['hist_diaod'];
                 $hist_recom= $row3 ['hist_recom'];
                 include_once '../view/Historias/detalle.php';
-        }
+	    } 
+	} else {
+	  redirect('index.php');
+	}
         }
     }
   function update(){

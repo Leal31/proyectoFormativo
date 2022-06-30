@@ -35,9 +35,6 @@ function validar() {
 	}
         
            }
-    function home(){
-        include_once '../view/home.php';
-    }
     function cerrarSesion() {
 	session_destroy();
 

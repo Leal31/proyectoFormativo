@@ -4,6 +4,8 @@
       function getInsert(){
 	if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
 	  include_once '../view/Estratos/insert.php' ;
+	} else {
+	  redirect('index.php');
 	} 
 	}
 	function getUpdate(){
@@ -13,7 +15,9 @@
 	    $sql="SELECT * FROM estratos WHERE estr_id=".$obj->getEstrId();
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/update.php';
-	  } 
+	  } else {
+	    redirect('index.php');
+	  }
 	}
 	    	
 	function getDelete(){
@@ -24,6 +28,8 @@
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/delete.php';
 
+	  } else {
+	    redirect('index.php');
 	  } 
 	    	}
 	function insert(){
@@ -54,6 +60,8 @@
 	    $estratos=$obj->sentencia($sql);
 	    include_once '../view/Estratos/consult.php';
 
+	  } else {
+	    redirect('index.php');
 	  }
 	    	}
 	function update(){

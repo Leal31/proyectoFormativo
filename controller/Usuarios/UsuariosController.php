@@ -12,6 +12,8 @@ class UsuariosController {
 
     include_once '../view/Usuarios/insert.php';
 
+    } else {
+      redirect('index.php');
     }
   }
 
@@ -69,6 +71,8 @@ class UsuariosController {
     }
     $usuarios = $obj -> sentencia($sql);
     include_once '../view/Usuarios/consult.php';
+    } else {
+      redirect('index.php');
     } 
       }
 
@@ -81,6 +85,8 @@ class UsuariosController {
     $usuario = $obj -> sentencia($sql);
     $roles = $obj -> sentencia($sql2);
     include_once '../view/Usuarios/update.php';
+    } else {
+      redirect('index.php');
     } 
       }
 
@@ -118,7 +124,9 @@ class UsuariosController {
 
     include_once '../view/Usuarios/delete.php';
 
-    } 
+    } else {
+      redirect('index.php');
+    }
       }
 
   public function postDelete() {

@@ -5,6 +5,8 @@
       function getInsert(){
 	if (isset($_SESSION['ingresoDocumento']) and $_SESSION['rol_id'] == '1') {
 	  include_once '../view/Hobbies/insert.php';
+	} else {
+	  redirect('index.php');
 	}
         }
     
@@ -15,6 +17,8 @@
             $sql="SELECT * FROM hobbies WHERE hob_id=$hob_id";
             $hobbies = $obj -> sentencia($sql);
             include_once '../view/Hobbies/update.php';
+	} else {
+	  redirect('index.php');
 	}
       }
 
@@ -26,6 +30,8 @@
             $sql="SELECT * FROM hobbies WHERE hob_id=$hob_id";
             $hobbies = $obj -> sentencia($sql);
             include_once '../view/Hobbies/delete.php';
+	} else {
+	  redirect('index.php');
 	}
       }
         function insert() {
@@ -46,7 +52,9 @@
             $sql="SELECT * FROM hobbies";
             $hobbies = $obj->sentencia($sql);
             include_once '../view/Hobbies/consult.php';
-	} 
+	} else {
+	  redirect('index.php');
+	}
       }
       function update(){
           $obj = new HobbiesModel();
