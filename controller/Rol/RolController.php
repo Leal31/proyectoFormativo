@@ -43,7 +43,7 @@ class RolController{
 	$sql="INSERT INTO roles VALUES ($id_rol, '$rol_nombre')";
 	$exec= $obj->sentencia($sql);
 	if($exec){
-		echo "<script>alert('El estrato fue añadido exitosamente')</script>";
+		echo "<script>alert('El rol fue añadido exitosamente')</script>";
 		redirect(getUrl("Rol","Rol","getInsert"));
 	    } else {
 		echo "Error en insert";
@@ -58,6 +58,7 @@ class RolController{
 	
 	$ejecutar = $obj -> sentencia($sql);
 	if ($ejecutar) {
+		echo "<script>alert('El rol fue eliminado con exito')</script>";
 		redirect(getUrl("Rol", "Rol", "consult"));
 	} else {
 		echo "Hubo un error";
@@ -71,7 +72,7 @@ class RolController{
 		$consulta = $obj-> sentencia($sql);
 
 		if ($consulta){
-			echo "<script>alert('El estrato fue actualizado con exito')</script>";
+			echo "<script>alert('El rol fue actualizado con exito')</script>";
 			redirect(getUrl("Rol","Rol","consult"));
 			}else {
 				echo "Verificar el proceso update";
