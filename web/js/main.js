@@ -1,29 +1,18 @@
 var working = false;
 $('.login').on('submit', function(e) {
-  /*e.preventDefault();
-  if (working) return;
-  working = true;
-  var $this = $(this),
-    $state = $this.find('button > .state');
-  $this.addClass('loading');
-  $state.html('Authenticating');
-  setTimeout(function() {
-    $this.addClass('ok');
-    $state.html('Welcome back!');
-    setTimeout(function() {
-      $state.html('Log in');
-      $this.removeClass('ok loading');
-      working = false;
-    }, 4000);
-
-  }, 3000);*/
-
-  window.location.href = "?modulo=Login&controlador=Login&funcion=validar";
+    window.location.href = "?modulo=Login&controlador=Login&funcion=validar";
 });
 
 $(".contenedor").hide();
+const protocol = window.location.protocol;
+console.log(protocol);
+const host = window.location.hostname;
+console.log(host);
+const port = window.location.port;
+console.log(port);
 var url = window.location.href;
-if (url === "http://localhost/proyectoFormativo/web/index.php") {
+console.log(url);
+if (url === protocol + "//" + host + port + "/proyectoFormativo/web/" || url === protocol + "//" +  host + port + "/proyectoFormativo/web/index.php") {
   $(".contenedor").hide();
 } else {
   $(".contenedor").show(500)
